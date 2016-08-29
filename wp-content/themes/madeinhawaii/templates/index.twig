@@ -1,0 +1,47 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<table>
+		<thead>
+			<tr>
+				<td>Producer Name</td>
+				<td>Email</td>
+				<td> address </td>
+				<td> city </td>
+				<td> state </td>
+				<td> zip </td>
+				<td> island </td>
+				<td> phone1 </td>
+				<td> phone2 </td>
+				<td> fax_pre </td>
+				<td> fax </td>
+				<td> website </td>
+				<td> certified </td>
+				<td> country </td>
+				<td> established_year </td>
+			</tr>
+		</thead>
+
+		<tbody>
+			{% for user in users %}
+				<tr>
+					<td>{{ user.display_name }}</td>
+					<td>{{ user.user_email }}</td>
+					<td>{{ user.address }} </td>
+					<td>{{ user.city }} </td>
+					<td>{{ user.state }} </td>
+					<td>{{ user.zip }} </td>
+					<td>{{ user.island }} </td>
+					<td>{{ user.phone1 }} </td>
+					<td>{{ user.phone2 }} </td>
+					<td>{{ user.fax_pre }} </td>
+					<td>{{ user.fax }} </td>
+					<td>{{ user.website }} </td>
+					<td>{{ user.certified }} </td>
+					<td>{{ user.country }} </td>
+					<td>{{ user.established_year }} </td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}
