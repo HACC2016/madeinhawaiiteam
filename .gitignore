@@ -11,6 +11,7 @@ wp-content/backupwordpress-*/
 wp-content/managewp/backups/
 wp-content/advanced-cache.php
 wp-content/wp-cache-config.php
+wp-content/themes/madeinhawaii/node_modules
 sitemap.xml
 sitemap.xml.gz
 *.log
@@ -53,3 +54,5 @@ Thumbs.db
 # SASS #
 ##########
 .sass-cache
+
+_doc
