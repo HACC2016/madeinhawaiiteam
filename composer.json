@@ -1,0 +1,24 @@
+{
+    "name": "hacc/made-in-hawaii",
+    "description": "Made In Hawaii repo",
+    "license": "ISC",
+    "authors": [
+        {
+            "name": "Russell Vea",
+            "email": "russellbvea@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type":"composer",
+            "url":"https://wpackagist.org"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "wpackagist-plugin/timber-library": "dev-trunk",
+        "league/csv": "~8.0@dev",
+        "upstatement/routes": "dev-master",
+        "qaribou/immutable.php": "dev-master"
+    }
+}
