@@ -339,5 +339,28 @@
             "immutable",
             "splfixedarray"
         ]
+    },
+    {
+        "name": "wpackagist-plugin/advanced-custom-fields",
+        "version": "dev-trunk",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "svn",
+            "url": "https://plugins.svn.wordpress.org/advanced-custom-fields/",
+            "reference": "trunk"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://downloads.wordpress.org/plugin/advanced-custom-fields.zip",
+            "reference": null,
+            "shasum": null
+        },
+        "require": {
+            "composer/installers": "~1.0"
+        },
+        "time": "2016-08-18 00:26:08",
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "homepage": "https://wordpress.org/plugins/advanced-custom-fields/"
     }
 ]

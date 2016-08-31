@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f99e4d210b01a1b3dfc2b13a3bafcee8",
+    "hash": "02bb6a8736feab5bc1b4f4e04e01228d",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -315,6 +315,27 @@
             "time": "2016-07-06 12:53:24"
         },
         {
+            "name": "wpackagist-plugin/advanced-custom-fields",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/advanced-custom-fields/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/advanced-custom-fields.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/advanced-custom-fields/",
+            "time": "2016-08-18 00:26:08"
+        },
+        {
             "name": "wpackagist-plugin/timber-library",
             "version": "dev-trunk",
             "source": {
@@ -343,7 +364,8 @@
         "wpackagist-plugin/timber-library": 20,
         "league/csv": 20,
         "upstatement/routes": 20,
-        "qaribou/immutable.php": 20
+        "qaribou/immutable.php": 20,
+        "wpackagist-plugin/advanced-custom-fields": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

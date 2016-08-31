@@ -19,6 +19,7 @@
         "wpackagist-plugin/timber-library": "dev-trunk",
         "league/csv": "~8.0@dev",
         "upstatement/routes": "dev-master",
-        "qaribou/immutable.php": "dev-master"
+        "qaribou/immutable.php": "dev-master",
+        "wpackagist-plugin/advanced-custom-fields": "dev-trunk"
     }
 }
