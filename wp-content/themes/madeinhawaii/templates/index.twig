@@ -19,6 +19,7 @@
 				<td> certified </td>
 				<td> country </td>
 				<td> established_year </td>
+				<td> products </td>
 			</tr>
 		</thead>
 
@@ -40,6 +41,20 @@
 					<td>{{ user.certified }} </td>
 					<td>{{ user.country }} </td>
 					<td>{{ user.established_year }} </td>
+				</tr>
+				<tr>
+					<td colspan="5">
+						<ul>
+							{% for product in user.products %}
+								{% set product = TimberPost(product)%}
+								<li>{{ product.post_title }} –
+										{% for term in product.terms('category') %}
+											{{ term.name }}
+										{% endfor %}
+								</li>
+							{% endfor %}
+						</ul>
+					</td>
 				</tr>
 			{% endfor %}
 		</tbody>
