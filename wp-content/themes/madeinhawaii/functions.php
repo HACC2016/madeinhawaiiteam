@@ -8,6 +8,7 @@ if ( ! class_exists( 'Timber' ) ) {
 }
 
 require('routes/index.php');
+require('post-types/product.php');
 
 Timber::$dirname = array('templates', 'components', 'modules');
 
