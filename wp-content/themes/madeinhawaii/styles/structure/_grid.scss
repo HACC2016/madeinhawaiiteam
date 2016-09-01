@@ -1,0 +1,35 @@
+$handheld: new-breakpoint(min-width em(758px));
+$tablet: new-breakpoint(min-width em(1024px));
+$desktop: new-breakpoint(min-width em(1280px));
+
+main {
+  padding-top: 7em;
+}
+
+.container {
+  @include outer-container;
+}
+
+.row {
+  @include row;
+}
+
+@for $i from 1 through 12 {
+
+  .col-#{$i} {
+    @include span-columns($i);
+    @include omega("#{12 / $i}n");
+  }
+
+  .col-#{$i}--tablet {
+    @include media($tablet) {
+      @include span-columns($i);
+    }
+  }
+
+  .col-#{$i}--desktop {
+    @include media($desktop) {
+      @include span-columns($i);
+    }
+  }
+}

@@ -20,13 +20,22 @@ if ( ! class_exists( 'Timber' ) ) {
 	return;
 }
 $context = Timber::get_context();
-$users = ImmArray::fromArray(get_users(['fields' => 'ID']));
+$page = $_GET['page'] ?? 1;
+$context['page'] = $page;
+$users =
+	ImmArray::fromArray(
+		get_users([
+			'fields' => 'ID',
+			'number' => 10,
+			'role__not_in' => ['Administrator'],
+			'paged' => $page
+		])
+	);
+
 $context['users'] =
 	$users->map(function($user) {
 		return new TimberUser(intval($user));
 	});
+
 $templates = array( 'index.twig' );
-if ( is_home() ) {
-	array_unshift( $templates, 'home.twig' );
-}
 Timber::render( $templates, $context, 10600, TimberLoader::CACHE_OBJECT);
