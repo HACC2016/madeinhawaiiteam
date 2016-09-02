@@ -9,11 +9,13 @@
 			  <ul class="list pl0 ml0 mw6 ba b--light-silver br2">
 					{% for product in user.products %}
 						{% set product = TimberPost(product) %}
-						<li class="ph3 pv3 bb b--light-silver"> {{- product.post_title -}}&nbsp;–&nbsp;
-													{%- for term in product.terms('category') -%}
-														{{- term.name -}}
-													{%- endfor -%}
-						</li>
+						{% if product.post_title %}
+							<li class="ph3 pv3 bb b--light-silver"> {{- product.post_title -}}&nbsp;–&nbsp;
+														{%- for term in product.terms('category') -%}
+															{{- term.name -}}
+														{%- endfor -%}
+							</li>
+						{% endif %}
 					{% endfor %}
 				</ul>
 			</article>
