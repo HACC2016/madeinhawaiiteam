@@ -1,7 +1,14 @@
 {% extends "base.twig" %}
 
 {% block content %}
+<div class="container">
+	<h1> {{author.display_name}} </h1>
+	<h3> Products </h3>
+	<ul class="list pa3 pa5-ns">
 	{% for post in posts %}
-		{% include ["tease-"~post.post_type~".twig", "tease.twig"] %}
+		{% set post = TimberPost(post) %}
+	  <li class="dib mr2"><a href="/product/{{ post.post_name }}" class="f4 f2-ns b db pa2 link dim mid-gray">{{ post.post_title }}</a></li>
 	{% endfor %}
+	</ul>
+</div>
 {% endblock %}

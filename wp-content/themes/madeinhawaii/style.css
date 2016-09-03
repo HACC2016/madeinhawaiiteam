@@ -5159,23 +5159,8 @@ main {
   .col-1:nth-child(12n) {
     margin-right: 0; }
 
-@media screen and (min-width: 64em) {
-  .col-1--tablet {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 6.17215%; }
-    .col-1--tablet:last-child {
-      margin-right: 0; } }
-
-@media screen and (min-width: 80em) {
-  .col-1--desktop {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 6.17215%; }
-    .col-1--desktop:last-child {
-      margin-right: 0; } }
+.shift-1 {
+  margin-left: 8.5298%; }
 
 .col-2 {
   float: left;
@@ -5187,23 +5172,8 @@ main {
   .col-2:nth-child(6n) {
     margin-right: 0; }
 
-@media screen and (min-width: 64em) {
-  .col-2--tablet {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 14.70196%; }
-    .col-2--tablet:last-child {
-      margin-right: 0; } }
-
-@media screen and (min-width: 80em) {
-  .col-2--desktop {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 14.70196%; }
-    .col-2--desktop:last-child {
-      margin-right: 0; } }
+.shift-2 {
+  margin-left: 17.05961%; }
 
 .col-3 {
   float: left;
@@ -5215,23 +5185,8 @@ main {
   .col-3:nth-child(4n) {
     margin-right: 0; }
 
-@media screen and (min-width: 64em) {
-  .col-3--tablet {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 23.23176%; }
-    .col-3--tablet:last-child {
-      margin-right: 0; } }
-
-@media screen and (min-width: 80em) {
-  .col-3--desktop {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 23.23176%; }
-    .col-3--desktop:last-child {
-      margin-right: 0; } }
+.shift-3 {
+  margin-left: 25.58941%; }
 
 .col-4 {
   float: left;
@@ -5243,23 +5198,8 @@ main {
   .col-4:nth-child(3n) {
     margin-right: 0; }
 
-@media screen and (min-width: 64em) {
-  .col-4--tablet {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 31.76157%; }
-    .col-4--tablet:last-child {
-      margin-right: 0; } }
-
-@media screen and (min-width: 80em) {
-  .col-4--desktop {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 31.76157%; }
-    .col-4--desktop:last-child {
-      margin-right: 0; } }
+.shift-4 {
+  margin-left: 34.11922%; }
 
 .col-5 {
   float: left;
@@ -5271,23 +5211,8 @@ main {
   .col-5:nth-child(2.4n) {
     margin-right: 0; }
 
-@media screen and (min-width: 64em) {
-  .col-5--tablet {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 40.29137%; }
-    .col-5--tablet:last-child {
-      margin-right: 0; } }
-
-@media screen and (min-width: 80em) {
-  .col-5--desktop {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 40.29137%; }
-    .col-5--desktop:last-child {
-      margin-right: 0; } }
+.shift-5 {
+  margin-left: 42.64902%; }
 
 .col-6 {
   float: left;
@@ -5299,23 +5224,8 @@ main {
   .col-6:nth-child(2n) {
     margin-right: 0; }
 
-@media screen and (min-width: 64em) {
-  .col-6--tablet {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 48.82117%; }
-    .col-6--tablet:last-child {
-      margin-right: 0; } }
-
-@media screen and (min-width: 80em) {
-  .col-6--desktop {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 48.82117%; }
-    .col-6--desktop:last-child {
-      margin-right: 0; } }
+.shift-6 {
+  margin-left: 51.17883%; }
 
 .col-7 {
   float: left;
@@ -5327,23 +5237,8 @@ main {
   .col-7:nth-child(1.71429n) {
     margin-right: 0; }
 
-@media screen and (min-width: 64em) {
-  .col-7--tablet {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 57.35098%; }
-    .col-7--tablet:last-child {
-      margin-right: 0; } }
-
-@media screen and (min-width: 80em) {
-  .col-7--desktop {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 57.35098%; }
-    .col-7--desktop:last-child {
-      margin-right: 0; } }
+.shift-7 {
+  margin-left: 59.70863%; }
 
 .col-8 {
   float: left;
@@ -5355,23 +5250,8 @@ main {
   .col-8:nth-child(1.5n) {
     margin-right: 0; }
 
-@media screen and (min-width: 64em) {
-  .col-8--tablet {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 65.88078%; }
-    .col-8--tablet:last-child {
-      margin-right: 0; } }
-
-@media screen and (min-width: 80em) {
-  .col-8--desktop {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 65.88078%; }
-    .col-8--desktop:last-child {
-      margin-right: 0; } }
+.shift-8 {
+  margin-left: 68.23843%; }
 
 .col-9 {
   float: left;
@@ -5383,23 +5263,8 @@ main {
   .col-9:nth-child(1.33333n) {
     margin-right: 0; }
 
-@media screen and (min-width: 64em) {
-  .col-9--tablet {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 74.41059%; }
-    .col-9--tablet:last-child {
-      margin-right: 0; } }
-
-@media screen and (min-width: 80em) {
-  .col-9--desktop {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 74.41059%; }
-    .col-9--desktop:last-child {
-      margin-right: 0; } }
+.shift-9 {
+  margin-left: 76.76824%; }
 
 .col-10 {
   float: left;
@@ -5411,23 +5276,8 @@ main {
   .col-10:nth-child(1.2n) {
     margin-right: 0; }
 
-@media screen and (min-width: 64em) {
-  .col-10--tablet {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 82.94039%; }
-    .col-10--tablet:last-child {
-      margin-right: 0; } }
-
-@media screen and (min-width: 80em) {
-  .col-10--desktop {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 82.94039%; }
-    .col-10--desktop:last-child {
-      margin-right: 0; } }
+.shift-10 {
+  margin-left: 85.29804%; }
 
 .col-11 {
   float: left;
@@ -5439,23 +5289,8 @@ main {
   .col-11:nth-child(1.09091n) {
     margin-right: 0; }
 
-@media screen and (min-width: 64em) {
-  .col-11--tablet {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 91.4702%; }
-    .col-11--tablet:last-child {
-      margin-right: 0; } }
-
-@media screen and (min-width: 80em) {
-  .col-11--desktop {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 91.4702%; }
-    .col-11--desktop:last-child {
-      margin-right: 0; } }
+.shift-11 {
+  margin-left: 93.82785%; }
 
 .col-12 {
   float: left;
@@ -5467,23 +5302,231 @@ main {
   .col-12:nth-child(1n) {
     margin-right: 0; }
 
+.shift-12 {
+  margin-left: 102.35765%; }
+
 @media screen and (min-width: 64em) {
+  .col-1--tablet {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 6.17215%; }
+    .col-1--tablet:last-child {
+      margin-right: 0; }
+    .col-1--tablet:nth-child(12n) {
+      margin-right: 0; }
+  .col-2--tablet {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 14.70196%; }
+    .col-2--tablet:last-child {
+      margin-right: 0; }
+    .col-2--tablet:nth-child(6n) {
+      margin-right: 0; }
+  .col-3--tablet {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 23.23176%; }
+    .col-3--tablet:last-child {
+      margin-right: 0; }
+    .col-3--tablet:nth-child(4n) {
+      margin-right: 0; }
+  .col-4--tablet {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 31.76157%; }
+    .col-4--tablet:last-child {
+      margin-right: 0; }
+    .col-4--tablet:nth-child(3n) {
+      margin-right: 0; }
+  .col-5--tablet {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 40.29137%; }
+    .col-5--tablet:last-child {
+      margin-right: 0; }
+    .col-5--tablet:nth-child(2.4n) {
+      margin-right: 0; }
+  .col-6--tablet {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%; }
+    .col-6--tablet:last-child {
+      margin-right: 0; }
+    .col-6--tablet:nth-child(2n) {
+      margin-right: 0; }
+  .col-7--tablet {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 57.35098%; }
+    .col-7--tablet:last-child {
+      margin-right: 0; }
+    .col-7--tablet:nth-child(1.71429n) {
+      margin-right: 0; }
+  .col-8--tablet {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 65.88078%; }
+    .col-8--tablet:last-child {
+      margin-right: 0; }
+    .col-8--tablet:nth-child(1.5n) {
+      margin-right: 0; }
+  .col-9--tablet {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 74.41059%; }
+    .col-9--tablet:last-child {
+      margin-right: 0; }
+    .col-9--tablet:nth-child(1.33333n) {
+      margin-right: 0; }
+  .col-10--tablet {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 82.94039%; }
+    .col-10--tablet:last-child {
+      margin-right: 0; }
+    .col-10--tablet:nth-child(1.2n) {
+      margin-right: 0; }
+  .col-11--tablet {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 91.4702%; }
+    .col-11--tablet:last-child {
+      margin-right: 0; }
+    .col-11--tablet:nth-child(1.09091n) {
+      margin-right: 0; }
   .col-12--tablet {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 100%; }
     .col-12--tablet:last-child {
+      margin-right: 0; }
+    .col-12--tablet:nth-child(1n) {
       margin-right: 0; } }
 
 @media screen and (min-width: 80em) {
+  .col-1--desktop {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 6.17215%; }
+    .col-1--desktop:last-child {
+      margin-right: 0; }
+    .col-1--desktop:nth-child(12n) {
+      margin-right: 0; }
+  .col-2--desktop {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 14.70196%; }
+    .col-2--desktop:last-child {
+      margin-right: 0; }
+    .col-2--desktop:nth-child(6n) {
+      margin-right: 0; }
+  .col-3--desktop {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 23.23176%; }
+    .col-3--desktop:last-child {
+      margin-right: 0; }
+    .col-3--desktop:nth-child(4n) {
+      margin-right: 0; }
+  .col-4--desktop {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 31.76157%; }
+    .col-4--desktop:last-child {
+      margin-right: 0; }
+    .col-4--desktop:nth-child(3n) {
+      margin-right: 0; }
+  .col-5--desktop {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 40.29137%; }
+    .col-5--desktop:last-child {
+      margin-right: 0; }
+    .col-5--desktop:nth-child(2.4n) {
+      margin-right: 0; }
+  .col-6--desktop {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%; }
+    .col-6--desktop:last-child {
+      margin-right: 0; }
+    .col-6--desktop:nth-child(2n) {
+      margin-right: 0; }
+  .col-7--desktop {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 57.35098%; }
+    .col-7--desktop:last-child {
+      margin-right: 0; }
+    .col-7--desktop:nth-child(1.71429n) {
+      margin-right: 0; }
+  .col-8--desktop {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 65.88078%; }
+    .col-8--desktop:last-child {
+      margin-right: 0; }
+    .col-8--desktop:nth-child(1.5n) {
+      margin-right: 0; }
+  .col-9--desktop {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 74.41059%; }
+    .col-9--desktop:last-child {
+      margin-right: 0; }
+    .col-9--desktop:nth-child(1.33333n) {
+      margin-right: 0; }
+  .col-10--desktop {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 82.94039%; }
+    .col-10--desktop:last-child {
+      margin-right: 0; }
+    .col-10--desktop:nth-child(1.2n) {
+      margin-right: 0; }
+  .col-11--desktop {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 91.4702%; }
+    .col-11--desktop:last-child {
+      margin-right: 0; }
+    .col-11--desktop:nth-child(1.09091n) {
+      margin-right: 0; }
   .col-12--desktop {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 100%; }
     .col-12--desktop:last-child {
+      margin-right: 0; }
+    .col-12--desktop:nth-child(1n) {
       margin-right: 0; } }
+
+.omega {
+  margin-right: 0; }
 
 .header {
   background: #111111;

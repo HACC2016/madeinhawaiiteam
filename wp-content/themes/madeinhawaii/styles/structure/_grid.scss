@@ -14,22 +14,38 @@ main {
   @include row;
 }
 
-@for $i from 1 through 12 {
 
+@for $i from 1 through 12 {
   .col-#{$i} {
     @include span-columns($i);
     @include omega("#{12 / $i}n");
   }
+  .shift-#{$i} {
+    @include shift($i);
+  }
+}
 
-  .col-#{$i}--tablet {
-    @include media($tablet) {
+
+@include media($tablet) {
+  @for $i from 1 through 12 {
+    .col-#{$i}--tablet {
       @include span-columns($i);
+      @include omega("#{12 / $i}n");
     }
   }
+}
 
-  .col-#{$i}--desktop {
-    @include media($desktop) {
+@include media($desktop) {
+  @for $i from 1 through 12 {
+    .col-#{$i}--desktop {
       @include span-columns($i);
+      @include omega("#{12 / $i}n");
     }
   }
+}
+
+
+
+.omega {
+  margin-right: 0;
 }

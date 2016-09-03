@@ -13,6 +13,11 @@ $templates = array( 'search.twig', 'archive.twig', 'index.twig' );
 $context = Timber::get_context();
 
 $context['title'] = 'Search results for '. get_search_query();
-$context['posts'] = Timber::get_posts();
+$products =
+  Timber::get_posts(
+    ['post_type' => 'product', 's' => $_GET['s']]
+  );
+
+$context['products'] = $products;
 
 Timber::render( $templates, $context );

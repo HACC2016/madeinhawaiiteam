@@ -1,33 +1,33 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<h1 class="vendors">Vendors</h1>
-	<div class="row">
-		{% for user in users %}
-			<article class="col-6">
-			  <h3 class="f4 bold mw6">{{ user.display_name }}</h3>
-			  <ul class="list pl0 ml0 mw6 ba b--light-silver br2">
-					{% for product in user.products %}
-						{% set product = TimberPost(product) %}
-						{% if product.post_title %}
-							<li class="ph3 pv3 bb b--light-silver"> {{- product.post_title -}}&nbsp;–&nbsp;
-														{%- for term in product.terms('category') -%}
-															{{- term.name -}}
-														{%- endfor -%}
-							</li>
-						{% endif %}
+	<div class="container ph4 ph0--ns">
+		<div class="col-12 col-8--tablet col-6--desktop">
+			<h1 class="f4 bold center">Vendors</h1>
+			{% if users %}
+				<ul class="list pl0 ml0 center mw5 ba b--light-silver br3">
+					{% for user in users %}
+					  <li class="ph3 pv2">{{ user.display_name }}</li>
 					{% endfor %}
 				</ul>
-			</article>
-		{% endfor %}
-	</div>
-	<div class="row bt pv4 mt6">
-		<nav>
-			{% if page > 1 %}
-				<a href="/?page={{ page - 1}}" class="link fl">Prev</a>
+			{% else %}
+			    No vendors found
 			{% endif %}
-
-			<a href="/?page={{ page + 1}}" class="link fr">Next</a>
-		</nav>
+		</div>
+		<div class="col-12 col-4--tablet col-6--desktop omega bl-ns pl4-ns">
+			<h1 class="f4 bold center">Products</h1>
+				{% if products %}
+					<ul class="list pl0 ml0 center ba b--light-silver br3">
+							{% for product in products if products %}
+							  <li class="ph3 pv2">
+									<a class="link black" href="{{ product.link }}">{{ product.title }}</a>
+								</li>
+							{% endfor %}
+						</ul>
+				{% else %}
+				    No Products Found
+				{% endif %}
+		</div>
+		<div class="categories"></div>
 	</div>
 {% endblock %}

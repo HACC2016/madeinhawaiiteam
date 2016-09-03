@@ -1,0 +1,14 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<h1>{{ post.post_title }}</h1>
+
+	<h3>Vendors</h3>
+	<ul class="list">
+		{% for user in users %}
+		  <li class="dib mr1 mb2">
+				<a href="/author/{{ user.user_login }}" class="f6 f5-ns b db pa2 link dim dark-gray ba b--black-20">{{ user.display_name }}</a>
+			</li>
+		{% endfor %}
+	</ul>
+{% endblock %}
