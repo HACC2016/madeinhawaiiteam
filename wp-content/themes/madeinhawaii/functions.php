@@ -22,7 +22,16 @@ class MadeInHawaii extends TimberSite {
 		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
+		add_action( 'admin_menu', [$this, 'remove_menus']);
 		parent::__construct();
+	}
+
+
+	function remove_menus() {
+		remove_menu_page('edit.php');
+		remove_menu_page('edit-comments.php');
+		remove_menu_page('upload.php');
+		remove_menu_page( 'themes.php' );
 	}
 
 	function register_post_types() {

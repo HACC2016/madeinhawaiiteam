@@ -19,7 +19,7 @@ function product_init() {
 		),
 		'public'            => true,
 		'hierarchical'      => false,
-		'taxonomies'				=> array('category'),
+		'taxonomies'				=> array('category', 'post_tag'),
 		'show_ui'           => true,
 		'show_in_nav_menus' => true,
 		'supports'          => array( 'title', 'editor' ),
