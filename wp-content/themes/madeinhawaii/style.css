@@ -5532,6 +5532,20 @@ main {
 .omega {
   margin-right: 0; }
 
+.cat-item {
+  list-style-type: none; }
+  .cat-item a {
+    text-decoration: none;
+    color: #111111; }
+
+ul {
+  padding-left: 1em;
+  margin-top: 0; }
+
+.category__sidebar {
+  max-height: 50em;
+  overflow: scroll; }
+
 .header {
   background: #111111;
   color: #FFFFFF; }
