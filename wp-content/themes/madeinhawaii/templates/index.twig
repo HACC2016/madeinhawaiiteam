@@ -2,6 +2,9 @@
 
 {% block content %}
 	<div class="container ph4 ph0--ns">
+		{% if title %}
+			<h1>{{ title }}</h1>
+		{% endif %}
 		<div class="col-12 col-8--tablet col-6--desktop">
 			<h1 class="f4 bold center">Vendors</h1>
 			{% if users %}
@@ -18,12 +21,20 @@
 			<h1 class="f4 bold center">Products</h1>
 				{% if products %}
 					<ul class="list pl0 ml0 center ba b--light-silver br3">
-							{% for product in products if products %}
-							  <li class="ph3 pv2">
-									<a class="link black" href="{{ product.link }}">{{ product.title }}</a>
-								</li>
+							{% for product in products %}
+								{% set author = TimberUser(product.post_author) %}
+								{% if author.display_name %}
+									  <li class="ph3 pv2 bb bb b--light-silver">
+											<a class="link black"
+												 href="{{ product.link }}">{{ product.title }}</a>
+											<br>
+											<a class="link gray" href="/author/{{ author.user_login }}">
+												{{ author.display_name }}
+											</a>
+										</li>
+								{% endif %}
 							{% endfor %}
-						</ul>
+					</ul>
 				{% else %}
 				    No Products Found
 				{% endif %}
