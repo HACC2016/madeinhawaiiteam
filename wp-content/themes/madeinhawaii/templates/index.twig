@@ -2,6 +2,14 @@
 
 {% block content %}
 	<div class="container ph4 ph0--ns">
+		<div class="row">
+			<div class="col-10 shift-1">
+				<form action="/" type="GET">
+					<label for="s" class="label black mb1">Search for a product or vendor</label>
+					<input name="s" class="col-12 input-reset ba pa2" type="text" class="input">
+				</form>
+			</div>
+		</div>
 		{% if title %}
 			<h1>{{ title }}</h1>
 		{% endif %}
