@@ -27,8 +27,11 @@ $products = Timber::get_posts([
   'posts_per_page' => 12,
   'paged' => $_GET['page'] ?? 1
 ]);
-die(var_dump(get_query_var());
-$context['page'] = $_GET['page'] ?? 1;
+if(isset($_GET['page'])) {
+  $context['page'] = $_GET['page'];
+} else {
+  $context['page'] = 1;
+}
 $context['products'] = $products;
 
 Timber::render( array( 'page-' . $post->post_name . '.twig', 'page.twig' ), $context );
