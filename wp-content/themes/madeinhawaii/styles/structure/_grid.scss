@@ -1,4 +1,4 @@
-$handheld: new-breakpoint(min-width em(758px));
+$handheld: new-breakpoint(maax-width em(1023px));
 $tablet: new-breakpoint(min-width em(1024px));
 $desktop: new-breakpoint(min-width em(1280px));
 
@@ -8,18 +8,22 @@ main {
 
 .container {
   @include outer-container;
+  padding: 0 10px;
+  @include media($desktop) {
+    padding: 0;
+  }
 }
 
 .row {
   @include row;
 }
 
-
 @for $i from 1 through 12 {
   .col-#{$i} {
     @include span-columns($i);
     @include omega("#{12 / $i}n");
   }
+
   .shift-#{$i} {
     @include shift($i);
   }
@@ -43,8 +47,6 @@ main {
     }
   }
 }
-
-
 
 .omega {
   margin-right: 0;

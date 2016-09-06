@@ -16,9 +16,14 @@
 		<div class="col-12 col-8--tablet col-6--desktop">
 			<h1 class="f4 bold center">Vendors</h1>
 			{% if users %}
-				<ul class="list pl0 ml0 center mw5 ba b--light-silver br3">
+				<ul class="list pl0 ml0 mr4 ba b--light-silver br3">
 					{% for user in users %}
-					  <li class="ph3 pv2">{{ user.display_name }}</li>
+						{% set user = TimberUser(user) %}
+					  <li class="ph3 pv2 bb b--light-silver">
+							<a class="link black" href="{{ user.link }}">
+								{{ user.display_name }}
+							</a>
+						</li>
 					{% endfor %}
 				</ul>
 			{% else %}
