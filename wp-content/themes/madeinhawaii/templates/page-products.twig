@@ -7,11 +7,13 @@
 		</ul>
 	</div>
 	<div class="col-12 col-9--desktop shift-1--desktop">
-		<form action="/" type="GET">
-			<label for="s" class="label black mb1">Search for a product or vendor</label>
-			<input name="s" class="col-12 input-reset ba pa2" type="text" class="input">
-		</form>
-		<div class="row pv2">
+		<div class="row">
+			<form action="/" type="GET">
+				<label for="s" class="label black mb1">Search for a product or vendor</label>
+				<input name="s" class="col-12 input-reset ba pa2" type="text" class="input">
+			</form>
+		</div>
+		<div class="row pv2 mt2 mt0--ns">
 			{% for product in products %}
 			  <article class="br2 ba dark-gray b--black-10 col-4--desktop mt3">
 			    <img src="//placehold.it/600x300" class="db w-100 br2 br--top" alt="">

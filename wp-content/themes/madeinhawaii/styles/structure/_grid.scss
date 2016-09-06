@@ -1,4 +1,4 @@
-$handheld: new-breakpoint(maax-width em(1023px));
+$handheld: new-breakpoint(max-width em(1023px));
 $tablet: new-breakpoint(min-width em(1024px));
 $desktop: new-breakpoint(min-width em(1280px));
 
@@ -62,6 +62,6 @@ main {
 
 .hide-on-mobile {
   @include media($handheld)  {
-    display: none;    
+    display: none;
   }
 }

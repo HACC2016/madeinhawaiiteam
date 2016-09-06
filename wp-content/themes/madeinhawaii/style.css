@@ -5580,7 +5580,7 @@ main {
 .omega {
   margin-right: 0; }
 
-@media screen and (maax-width: 63.9375em) {
+@media screen and (max-width: 63.9375em) {
   .hide-on-mobile {
     display: none; } }
 
