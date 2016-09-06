@@ -36,6 +36,10 @@ main {
       @include span-columns($i);
       @include omega("#{12 / $i}n");
     }
+
+    .shift-#{$i}--tablet {
+      @include shift($i);
+    }
   }
 }
 
@@ -45,9 +49,19 @@ main {
       @include span-columns($i);
       @include omega("#{12 / $i}n");
     }
+
+    .shift-#{$i}--desktop {
+      @include shift($i);
+    }
   }
 }
 
 .omega {
   margin-right: 0;
+}
+
+.hide-on-mobile {
+  @include media($handheld)  {
+    display: none;    
+  }
 }

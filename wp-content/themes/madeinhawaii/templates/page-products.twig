@@ -1,12 +1,12 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<div class="col-12 col-2--desktop category__sidebar">
+	<div class="col-12 col-2--desktop category__sidebar hide-on-mobile">
 		<ul class="list">
 			{{fn('wp_list_categories', { hide_empty: false })}}
 		</ul>
 	</div>
-	<div class="col-12 col-9--desktop shift-1">
+	<div class="col-12 col-9--desktop shift-1--desktop">
 		<form action="/" type="GET">
 			<label for="s" class="label black mb1">Search for a product or vendor</label>
 			<input name="s" class="col-12 input-reset ba pa2" type="text" class="input">
