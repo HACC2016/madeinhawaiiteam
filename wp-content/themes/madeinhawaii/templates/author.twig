@@ -2,13 +2,85 @@
 
 {% block content %}
 <div class="container">
-	<h1> {{author.display_name}} </h1>
-	<h3> Products </h3>
-	<ul class="list pa3 pa5-ns">
-	{% for post in posts %}
-		{% set post = TimberPost(post) %}
-	  <li class="dib mr2"><a href="/product/{{ post.post_name }}" class="f4 f2-ns b db pa2 link dim mid-gray">{{ post.post_title }}</a></li>
-	{% endfor %}
-	</ul>
+	<div class="col-3--desktop br b--light-silver">
+		<h4>Products</h4>
+		<ul class="list pa0">
+		{% for post in posts %}
+			{% set post = TimberPost(post) %}
+		  <li class="mr2 bb b--light-silver pv2">
+				<a href="/product/{{ post.post_name }}" class="f4 b mr2 pa1 link dim gray">
+					{{ post.post_title }}
+				</a>
+			</li>
+		{% endfor %}
+		</ul>
+	</div>
+	<div class="col-9">
+		<h1 class="bb b--light-silver pb3"> {{ author.display_name }} </h1>
+		<p>
+			{% if author.address %}
+				<span class="b">Address:&nbsp;</span>{{ author.address }} {{ author.address2 }}
+			{% endif %}
+			{% if author.city %}
+				{{- author.city -}},
+			{% endif %}
+			{% if author.state %}{{- author.state -}}{% endif %}
+		</p>
+
+		{% if author.email and author.email != '##' %}
+		<p>
+			<span class="b">Email:</span><a href="mailto:{{author.email}}" class="link black">
+				{{ author.email }}
+			</a>
+		</p>
+		{% endif %}
+
+		{% if author.phone1 or author.phone2 %}
+		<p>
+			<span class="b">Phone: </span>
+			<a class="link black" href="tel:{{author.phone1}}">{{ author.phone1}}</a>
+			{% if author.phone2 %}
+				<a href="tel{{ author.phone2 }}" class="link gray"></a>
+			{% endif %}
+		</p>
+		{% endif %}
+
+		<div class="row">
+			{% if author.services %}
+				<div class="col-4--desktop">
+					<h5 class="pt2">
+						Services
+					</h5>
+					<ul class="list pa0">
+						{% for service in author.services %}
+							<li class="pv1 bb b--light-silver">{{ service }}</li>
+						{% endfor %}
+					</ul>
+				</div>
+			{% endif %}
+			{% if author.type_of_business %}
+				<div class="col-4--desktop">
+					<h5 class="pt2">Type Of Business</h5>
+						<ul class="list pa0">
+							{% for type in author.type_of_business %}
+								<li class="pv1 bb b--light-silver">{{ type }}</li>
+							{% endfor %}
+						</ul>
+					</h5>
+				</div>
+			{% endif %}
+			{% if author.market %}
+			<div class="col-4--desktop">
+				<h5 class="pt2">Market</h5>
+					<ul class="list pa0">
+						{% for market in author.market %}
+							<li class="pv1 bb b--light-silver">{{ market }}</li>
+						{% endfor %}
+					</ul>
+				</h5>
+			</div>
+			{% endif %}
+		</div>
+	</div>
 </div>
 {% endblock %}

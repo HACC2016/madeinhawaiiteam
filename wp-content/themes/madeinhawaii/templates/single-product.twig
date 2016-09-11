@@ -1,14 +1,43 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<h1>{{ post.post_title }}</h1>
+	<div class="row">
+		<div class="col-4--desktop br b--light-silver">
+			<h5>Related Products</h5>
+			<ul class="list pa0 pr4">
+				{% for related_product in related[:10]%}
+					<li class="bb pa2 b--light-silver">
+						<a href="{{ related_product.link }}" class="link black">
+							{{ related_product.post_title }}
+						</a>
+						{% set related_user = TimberUser(related_product.user) %}
+						<br>
+						{% if related_user %}
+							<a class="link gray" href="/author/{{ related_user.user_login }}">
+								{{ related_user.display_name }}
+							</a>
+						{% endif %}
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+		<div class="col-8--desktop">
+			<div class="bb b--light-silver mb4">
+				<h1>{{ post.post_title }}</h1>
+				{% set vendor = TimberUser(post.user) %}
+				{% if vendor %}
+					<h3>
+						<a class="link gray" href="/author/{{vendor.user_login}}">
+							{{- vendor.display_name -}}
+						</a>
+					</h3>
+				{% endif %}
+			</div>
 
-	<h3>Vendors</h3>
-	<ul class="list">
-		{% for user in users %}
-		  <li class="dib mr1 mb2">
-				<a href="/author/{{ user.user_login }}" class="f6 f5-ns b db pa2 link dim dark-gray ba b--black-20">{{ user.display_name }}</a>
-			</li>
-		{% endfor %}
-	</ul>
+			<img src="http://placehold.it/600x400" alt="" />
+			<h5>Availability</h5>
+			{{ product.product_status | default('In Stock')}}
+		</div>
+	</div>
+
 {% endblock %}

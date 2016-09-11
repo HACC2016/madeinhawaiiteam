@@ -15,6 +15,5 @@ if ( isset( $wp_query->query_vars['author'] ) ) {
 	$author = new TimberUser( $wp_query->query_vars['author'] );
 	$context['author'] = $author;
 	$context['posts'] = Timber::get_posts(['author' => $author->ID, 'post_per_page' => -1, 'post_type' => 'product']);
-	$context['title'] = 'Author Archives: ' . $author->name();
 }
 Timber::render( array( 'author.twig', 'archive.twig' ), $context );

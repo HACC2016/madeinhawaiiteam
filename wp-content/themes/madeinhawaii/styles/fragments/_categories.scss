@@ -1,0 +1,17 @@
+.cat-item  {
+  list-style-type: none;
+  a {
+    text-decoration: none;
+    color: $black;
+  }
+}
+
+ul {
+  padding-left: 1em;
+  margin-top: 0;
+}
+
+.category__sidebar {
+  max-height: 50em;
+  overflow: scroll;
+}
