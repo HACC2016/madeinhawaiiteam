@@ -51,6 +51,16 @@ class MadeInHawaii extends TimberSite {
 
 function add_to_twig( $twig ) {
 		/* this is where you can add your own fuctions to twig */
+
+		$twig->addFunction(
+			new Twig_SimpleFunction('register_form', function() {
+				acf_form([
+					'post_id' => 'new',
+					'field_groups' => [30]
+				]);
+			})
+		);
+
 		$twig->addExtension( new Twig_Extension_StringLoader() );
 		return $twig;
 	}

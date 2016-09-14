@@ -5,6 +5,7 @@
  *  Author: HACC 2016
  */
 /*! initcss */
+@import url(dropzone/dist/dropzone.css);
 * {
   box-sizing: border-box; }
 
@@ -5600,4 +5601,114 @@ ul {
 
 .header {
   background: #111111;
-  color: #FFFFFF; }
+  color: #FFFFFF;
+  z-index: 14; }
+
+.register__container {
+  background: #FEFEFE;
+  lost-center: 60rem;
+  padding: 2.5% 5%;
+  margin: 2em auto 0;
+  box-shadow: 0 0 10px rgba(17, 17, 17, 0.4); }
+  @media screen and (max-width: 63.9375em) {
+    .register__container {
+      margin: 2em 1em 0; } }
+
+.register__dropzone {
+  lost-column: 8/12;
+  display: inline-block;
+  border: 1px dashed #DDDDDD; }
+  @media screen and (min-width: 80em) {
+    .register__dropzone {
+      lost-column: 9/12; } }
+
+.register__image {
+  max-width: 4em; }
+
+.register__input,
+.register__dropzone .register__image {
+  lost-column: 8/12; }
+  @media screen and (min-width: 80em) {
+    .register__input,
+    .register__dropzone .register__image {
+      lost-column: 9/12; } }
+
+.register fieldset {
+  border: none;
+  padding: 0;
+  margin: 1.5em 0; }
+
+.register__label {
+  position: relative;
+  lost-column: 4/12; }
+  @media screen and (min-width: 80em) {
+    .register__label {
+      lost-column: 3/12; } }
+
+.acf-button,
+.register__btn {
+  background: #2ECC40;
+  border: none;
+  color: #FFFFFF;
+  padding: 0.25em 0.5em 0.35em;
+  font-size: 1em; }
+
+@media screen and (max-width: 63.9375em) {
+  .form-table > tbody > .acf-field .acf-label,
+  .form-table > tbody > .acf-field .acf-input {
+    lost-column: 1; } }
+
+@media screen and (max-width: 63.9375em) {
+  .form-table > tbody > .acf-field > .acf-input {
+    margin: -2em 0 1em;
+    padding-left: 0; } }
+
+.acf-field input[type="text"],
+.acf-field input[type="email"],
+.acf-field input[type="password"] {
+  border: 1px solid #ececec;
+  width: 100%; }
+  @media screen and (max-width: 63.9375em) {
+    .acf-field input[type="text"],
+    .acf-field input[type="email"],
+    .acf-field input[type="password"] {
+      width: 100%;
+      padding: 2%; } }
+
+.acf-field input[type="checkbox"] {
+  margin: 0 0.75em 0 0; }
+
+.acf-field label {
+  font-size: 18px; }
+
+@media screen and (max-width: 63.9375em) {
+  .acf-field .acf-label {
+    width: 100% !important; } }
+
+.acf-field .acf-label p {
+  font-size: 1em; }
+
+@media screen and (max-width: 63.9375em) {
+  .acf-field[data-name="private_profile"] .acf-checkbox-list {
+    padding: 0; } }
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  border: 1px solid #ececec; }
+
+.required {
+  position: relative 0.25em -0.5em null null;
+  color: #FF4136; }
+  @media screen and (max-width: 63.9375em) {
+    .required {
+      position: absolute; } }
+
+.dk-select.dk-select {
+  width: 50%; }
+
+.register .field_key-field_57c6704659d66,
+.register .field_key-field_57c6704e59d67,
+.register .field_key-field_57c687c497a14,
+.register .field_key-field_57c6712159d73 {
+  display: none; }

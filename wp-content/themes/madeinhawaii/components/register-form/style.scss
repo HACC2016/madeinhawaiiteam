@@ -1,0 +1,146 @@
+@import "dropzone/dist/dropzone.css";
+
+.register {
+  &__container {
+    background: #FEFEFE;
+    lost-center: 60rem;
+    padding: 2.5% 5%;
+    margin: 2em auto 0;
+    box-shadow: 0 0 10px rgba($black, 0.4);
+
+    @include media($handheld) {
+      margin: 2em 1em 0;
+    }
+  }
+
+  &__dropzone {
+    lost-column: 8/12;
+    display:inline-block;
+    border: 1px dashed $silver;
+
+    @include media($desktop) {
+      lost-column: 9/12;
+    }
+  }
+
+  &__image {
+    max-width: 4em;
+  }
+
+  &__input,
+  &__dropzone
+  &__image {
+    lost-column: 8/12;
+
+    @include media($desktop) {
+      lost-column: 9/12;
+    }
+  }
+
+  fieldset {
+    border: none;
+    padding: 0;
+    margin: 1.5em 0;
+  }
+
+  &__label {
+    position: relative;
+    lost-column: 4/12;
+
+    @include media($desktop) {
+      lost-column: 3/12;
+    }
+  }
+}
+
+.acf-button,
+.register__btn {
+  background: $green;
+  border: none;
+  color: $white;
+  padding: 0.25em 0.5em 0.35em;
+  font-size: 1em;
+}
+
+.form-table > tbody > .acf-field  {
+  .acf-label,
+  .acf-input {
+    @include media($handheld) {
+      lost-column: 1;
+    }
+  }
+  & > .acf-input {
+    @include media($handheld) {
+      margin: -2em 0 1em;
+      padding-left: 0;
+    }
+  }
+}
+
+.acf-field {
+  input[type="text"],
+  input[type="email"] ,
+  input[type="password"] {
+    border: 1px solid #ececec;
+    width: 100%;
+
+    @include media($handheld) {
+      width: 100%;
+      padding: 2%;
+    }
+  }
+
+  input[type="checkbox"] {
+    margin: 0 0.75em 0 0;
+  }
+
+  label {
+    font-size: 18px;
+  }
+
+  .acf-label {
+    @include media($handheld) {
+      width: 100% !important;
+    }
+    p {
+      font-size: 1em;
+    }
+  }
+
+  &[data-name="private_profile"] {
+    .acf-checkbox-list {
+      @include media($handheld) {
+        padding: 0;
+      }
+    }
+  }
+}
+
+input[type="text"],
+input[type="email"] ,
+input[type="password"] {
+  border: 1px solid #ececec;
+}
+
+.required {
+  position: relative 0.25em -0.5em null null;
+  color: $red;
+
+  @include media($handheld) {
+    position: absolute ;
+  }
+}
+
+.dk-select.dk-select {
+  width: 50%;
+}
+
+
+.register {
+  .field_key-field_57c6704659d66,
+  .field_key-field_57c6704e59d67,
+  .field_key-field_57c687c497a14,
+  .field_key-field_57c6712159d73 {
+    display: none;
+  }
+}

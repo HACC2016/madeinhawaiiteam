@@ -30,7 +30,7 @@ gulp.task('js', function() {
 })
 
 gulp.task('watch', function() {
-  gulp.watch(paths.sass, ['sass']);
+  gulp.watch(['styles/**/*.scss', 'components/**/*.scss'], ['sass']);
   gulp.watch(paths.js, ['js']);
 
   var twig = gulp.watch('templates/**/*.twig')
