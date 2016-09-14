@@ -3,14 +3,16 @@
     Please input your relevant information about your organization
   </p>
   <form id="register-form" class="register" action="/signup" method="POST">
-    <fieldset class="col-6">
-      <label class="col-4 register__label" for="email">Private Email <span class="required">*</span></label>
-      <input class="col-12 register__input" name="email" type="email" required>
-    </fieldset>
-    <fieldset class="col-6 omega">
-      <label class="col-4 register__label" for="password">Password <span class="required">*</span></label>
-      <input class="col-12 register__input" name="password" type="password" required>
-    </fieldset>
+    <div class="row">
+      <fieldset class="col-6">
+        <label class="col-4 register__label" for="email">Private Email <span class="required">*</span></label>
+        <input class="col-12 register__input" name="email" type="email" required>
+      </fieldset>
+      <fieldset class="col-6 omega">
+        <label class="col-4 register__label" for="password">Password <span class="required">*</span></label>
+        <input class="col-12 register__input" name="password" type="password" required>
+      </fieldset>
+    </div>
 
     {{ register_form() }}
 
