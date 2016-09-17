@@ -1,0 +1,28 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h3 class="col-12 tc mb3">Add Products</h3>
+				<input class="awesomplete w100 pa2" type="text" list="products">
+				<datalist id="products">
+					{% for product in products %}
+					  <option>{{ product }}</option>
+					{% endfor %}
+				</datalist>
+				<a class="btn btn--s btn--gray mt3 add-product">Add Product</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<h3 class="col-12 tc <mt></mt>4">Your Products</h3>
+				<div class="col-8 shift-2 ">
+					<ul class="list ba pa0" class="shift-6">
+					</ul>
+				</div>
+				<a href="" class="btn btn--s btn--blue fr">Save</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}

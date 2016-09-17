@@ -6,7 +6,7 @@ var webpackStream = require('webpack-stream')
 
 var paths = {
   sass: 'styles/**/*.scss',
-  js: 'js/**/*.js',
+  js: 'js/src/**/*.js',
   templates: 'templates/*.twig',
 }
 
