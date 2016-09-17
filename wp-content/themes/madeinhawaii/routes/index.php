@@ -1,6 +1,6 @@
 <?php
   if(! class_exists('Routes')) {
-    die('Upstatment router needed');
+    die('Upstatement router needed');
   }
 
   Routes::map('/import-users', function() {
@@ -13,5 +13,9 @@
 
   Routes::map('/categories', function() {
     Routes::load('/controllers/categories.php');
+  });
+
+  Routes::map('/signup', function() {
+    Routes::load('/controllers/register.php');
   });
 ?>
