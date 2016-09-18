@@ -6,10 +6,9 @@
     lost-center: 60rem;
     padding: 2.5% 5%;
     margin: 2em auto 0;
-    box-shadow: 0 0 10px rgba($black, 0.4);
 
     @include media($handheld) {
-      margin: 2em 1em 0;
+      margin: 4em 1em 0;
     }
   }
 

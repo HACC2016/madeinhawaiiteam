@@ -24,9 +24,9 @@
 $context = Timber::get_context();
 $products = Timber::get_posts([
   'post_type' => 'product',
-  'posts_per_page' => 12,
-  'paged' => $_GET['page'] ?? 1
+  'posts_per_page' => 12
 ]);
+
 if(isset($_GET['page'])) {
   $context['page'] = $_GET['page'];
 } else {

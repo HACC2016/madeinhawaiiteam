@@ -1,5 +1,17 @@
 .header {
-  background: $black;
+  background: $white;
   color: $white;
   z-index: 14;
+  box-shadow: 0 0 10px rgba($black, 0.3);
+  line-height: 75px;
+
+  &-logo {
+    @include size(em(75px) auto);
+    margin-right: 1em;
+  }
+
+  &-text {
+    position: relative;
+    top: -0.75em;
+  }
 }

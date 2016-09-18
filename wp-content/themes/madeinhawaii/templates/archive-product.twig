@@ -2,19 +2,25 @@
 
 {% block content %}
 	<div class="col-12 col-2--desktop category__sidebar hide-on-mobile">
-		<ul class="list">
-			{{fn('wp_list_categories', { hide_empty: false })}}
-		</ul>
+		<form action="/" type="GET">
+			<label for="s" class="label black mb1">Search</label>
+			<input name="s" class="col-12 input-reset ba pa2" type="text" class="input">
+		</form>
 	</div>
 	<div class="col-12 col-9--desktop shift-1--desktop">
-		<div class="row">
-			<form action="/" type="GET">
-				<label for="s" class="label black mb1">Search for a product or vendor</label>
-				<input name="s" class="col-12 input-reset ba pa2" type="text" class="input">
-			</form>
+		<div class="row categories -active">
+			<h5 class="ma0">
+				<a href="#" class="filter-by-category link black dim">
+					Filter by categories
+				</a>
+			</h5>
+			<hr class="mv2 mh0">
+			<ul class="list tree">
+				{{ fn('walk_category_tree', categories, 4, defaults) }}
+			</ul>
 		</div>
 		<div class="row pv2 mt2 mt0--ns">
-			{% for product in products %}
+			{% for product in posts %}
 			  <article class="br2 ba dark-gray b--black-10 col-4--desktop mt3">
 			    <img src="//placehold.it/600x300" class="db w-100 br2 br--top" alt="">
 			    <div class="pa2 ph3-ns pb3-ns">
@@ -30,10 +36,12 @@
 
 		</div>
 		<div class="mt4 pa4 bt b--light-silver">
-			{% if page > 1 %}
-				<a class="fl f5 link black" href="/products/?paged={{ page - 1}}">&laquo;&nbsp;Prev</a>
+			{% if pagination.prev %}
+				<a class="fl f5 link black" href="{{ pagination.prev.link }}">&laquo;&nbsp;Prev</a>
 			{% endif %}
-			<a class="fr f5 link black" href="/products/?paged={{ page + 1 }}">Next&nbsp;&raquo;</a>
+			{% if pagination.next %}
+				<a class="fr f5 link black" href="{{ pagination.next.link }}/">Next&nbsp;&raquo;</a>
+			{% endif %}
 		</div>
 	</div>
 {% endblock %}

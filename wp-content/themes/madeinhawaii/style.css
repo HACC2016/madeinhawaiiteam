@@ -5425,6 +5425,16 @@ div.awesomplete li[aria-selected="true"] mark {
   .btn--full {
     max-width: 16em !important; } }
 
+body[data-template="base.twig"] {
+  background: #409d1c; }
+
+main > .container {
+  padding: 2em;
+  background: white;
+  border-radius: 0.25em;
+  margin: 0 auto 2em;
+  box-shadow: 0 0 10px rgba(17, 17, 17, 0.3); }
+
 main {
   padding-top: 7em; }
 
@@ -5888,7 +5898,7 @@ main {
   list-style-type: none; }
   .cat-item a {
     text-decoration: none;
-    color: #111111; }
+    color: #111; }
 
 ul {
   padding-left: 1em;
@@ -5899,24 +5909,61 @@ ul {
   overflow: scroll; }
 
 .header {
-  background: #111111;
-  color: #FFFFFF;
-  z-index: 14; }
+  background: #fff;
+  color: #fff;
+  z-index: 14;
+  box-shadow: 0 0 10px rgba(17, 17, 17, 0.3);
+  line-height: 75px; }
+  .header-logo {
+    height: auto;
+    width: 4.6875em;
+    margin-right: 1em; }
+  .header-text {
+    position: relative;
+    top: -0.75em; }
+
+.categories {
+  max-height: 1.5em;
+  overflow: hidden;
+  transition: max-height 1.2s ease; }
+  .categories.-active {
+    max-height: 18.75em; }
+
+.list.tree {
+  padding: 0; }
+  .list.tree > li {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 31.76157%;
+    max-height: 1.5em;
+    overflow: scroll; }
+    .list.tree > li:last-child {
+      margin-right: 0; }
+    .list.tree > li:nth-child(3n) {
+      margin-right: 0; }
+    .list.tree > li:nth-child(3n+1) {
+      clear: left; }
+    .list.tree > li > a {
+      font-weight: bold; }
+      .list.tree > li > a.has-children::after {
+        content: ' + '; }
+    .list.tree > li > .children {
+      padding-left: 0; }
 
 .register__container {
   background: #FEFEFE;
   lost-center: 60rem;
   padding: 2.5% 5%;
-  margin: 2em auto 0;
-  box-shadow: 0 0 10px rgba(17, 17, 17, 0.4); }
+  margin: 2em auto 0; }
   @media screen and (max-width: 63.9375em) {
     .register__container {
-      margin: 2em 1em 0; } }
+      margin: 4em 1em 0; } }
 
 .register__dropzone {
   lost-column: 8/12;
   display: inline-block;
-  border: 1px dashed #DDDDDD; }
+  border: 1px dashed #FBFDFE; }
   @media screen and (min-width: 80em) {
     .register__dropzone {
       lost-column: 9/12; } }
@@ -5946,9 +5993,9 @@ ul {
 
 .acf-button,
 .register__btn {
-  background: #2ECC40;
+  background: #409d1c;
   border: none;
-  color: #FFFFFF;
+  color: #fff;
   padding: 0.25em 0.5em 0.35em;
   font-size: 1em; }
 

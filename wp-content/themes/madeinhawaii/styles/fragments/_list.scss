@@ -1,0 +1,31 @@
+.categories {
+  max-height: 1.5em;
+  overflow: hidden;
+  transition: max-height 1.2s ease;
+
+  &.-active {
+    max-height: em(300px);
+  }
+}
+
+.list.tree {
+  padding: 0;
+  > li {
+    @include span-columns(4);
+    @include omega(3n);
+    max-height: 1.5em;
+    overflow: scroll;
+
+    > a {
+      font-weight: bold;
+      
+      &.has-children::after {
+          content: ' + ';
+      }
+    }
+
+    > .children {
+      padding-left: 0;
+    }
+  }
+}

@@ -54,17 +54,52 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	console.log(_domready2.default);
-
+	/**
+	 *  Add button
+	 */
 	(0, _domready2.default)(function () {
 	  var btn = document.querySelector('.add-product');
-	  console.log(btn);
 	  if (!btn) {
 	    return;
 	  }
 	  btn.addEventListener('click', function () {
 	    var val = document.querySelector('input.awesomplete').value;
 	    document.querySelector('ul.list').insertAdjacentHTML('beforeend', '<li class="bb b--light-silver pv2 pl2">' + val + '</li>');
+	  });
+	});
+
+	/**
+	 *   Filter by category
+	 */
+	(0, _domready2.default)(function () {
+	  var filter = document.querySelector('.filter-by-category');
+	  if (!filter) {
+	    return;
+	  }
+	  filter.addEventListener('click', function (e) {
+	    e.preventDefault();
+	    this.parentNode.parentNode.classList.toggle('-active');
+	  });
+
+	  Array.from(document.querySelectorAll('.list.tree > li > a')).forEach(function (link) {
+	    var parent = link.parentNode;
+	    var children = parent.querySelector('.children');
+	    if (children) {
+	      (function () {
+	        var height = children.offsetHeight + 21;
+	        link.classList.add('has-children');
+	        console.log(link);
+	        link.addEventListener('click', function (e) {
+	          e.preventDefault();
+	          parent.classList.toggle('-active');
+	          if (parent.classList.contains('-active')) {
+	            parent.style['max-height'] = height + 'px';
+	          } else {
+	            parent.style['max-height'] = '21px';
+	          }
+	        });
+	      })();
+	    }
 	  });
 	});
 
