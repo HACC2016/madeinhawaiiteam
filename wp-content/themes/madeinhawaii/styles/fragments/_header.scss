@@ -7,11 +7,7 @@
 
   &-logo {
     @include size(em(75px) auto);
+    @include position(relative, 0.75em null null);
     margin-right: 1em;
-  }
-
-  &-text {
-    position: relative;
-    top: -0.75em;
   }
 }

@@ -5428,12 +5428,14 @@ div.awesomplete li[aria-selected="true"] mark {
 body[data-template="base.twig"] {
   background: #409d1c; }
 
-main > .container {
-  padding: 2em;
-  background: white;
-  border-radius: 0.25em;
-  margin: 0 auto 2em;
-  box-shadow: 0 0 10px rgba(17, 17, 17, 0.3); }
+main {
+  min-height: calc(100vh - 120px); }
+  main > .container {
+    padding: 2em;
+    background: white;
+    border-radius: 0.25em;
+    margin: 0 auto 2em;
+    box-shadow: 0 0 10px rgba(17, 17, 17, 0.3); }
 
 main {
   padding-top: 7em; }
@@ -5904,9 +5906,25 @@ ul {
   padding-left: 1em;
   margin-top: 0; }
 
-.category__sidebar {
-  max-height: 50em;
-  overflow: scroll; }
+.footer {
+  padding: 2em;
+  background: #2e7214;
+  color: #fff; }
+  .footer::after {
+    clear: both;
+    content: "";
+    display: block; }
+  .footer-nav {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%; }
+    .footer-nav:last-child {
+      margin-right: 0; }
+    .footer-nav:nth-child(2n) {
+      margin-right: 0; }
+    .footer-nav:nth-child(2n+1) {
+      clear: left; }
 
 .header {
   background: #fff;
@@ -5917,13 +5935,12 @@ ul {
   .header-logo {
     height: auto;
     width: 4.6875em;
-    margin-right: 1em; }
-  .header-text {
     position: relative;
-    top: -0.75em; }
+    top: 0.75em;
+    margin-right: 1em; }
 
 .categories {
-  max-height: 1.5em;
+  max-height: 3em;
   overflow: hidden;
   transition: max-height 1.2s ease; }
   .categories.-active {

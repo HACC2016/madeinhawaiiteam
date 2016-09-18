@@ -1,0 +1,11 @@
+.footer {
+  @include clearfix;
+  padding: 2em;
+  background: darken($green, 10%);
+  color: $white;
+
+  &-nav {
+    @include span-columns(6);
+    @include omega(2n);
+  }
+}

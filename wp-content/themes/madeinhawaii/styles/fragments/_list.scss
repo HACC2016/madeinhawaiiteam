@@ -1,5 +1,5 @@
 .categories {
-  max-height: 1.5em;
+  max-height: 3em;
   overflow: hidden;
   transition: max-height 1.2s ease;
 
@@ -18,7 +18,7 @@
 
     > a {
       font-weight: bold;
-      
+
       &.has-children::after {
           content: ' + ';
       }
