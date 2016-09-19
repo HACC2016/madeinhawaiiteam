@@ -9,18 +9,21 @@
  * @since   Timber 0.1
  */
  global $wpdb;
+ global $wp_query;
  use Qaribou\Collection\ImmArray;
 
 $templates = array( 'search.twig', 'archive.twig', 'index.twig' );
 $context = Timber::get_context();
 
 $search = $_GET['s'];
+$context['page'] = $page;
 $context['title'] = 'Search results for &quot;'. get_search_query() . "&quot;";
 $products =
   Timber::get_posts(
     [
       'post_type' => 'product',
       's' => $search,
+      'paged' => $wp_query->query_vars['paged'],
       'tax_query' => [
         [
             'taxonomy' => 'category',
@@ -30,6 +33,9 @@ $products =
       ]
     ]
   );
+
+$pagination = Timber::get_pagination();
+$context['pagination'] = $pagination;
 
 
 $context['products'] = $products;

@@ -34,5 +34,6 @@ $context['users'] =
 		return new TimberUser(intval($user));
 	});
 
+
 $templates = array( 'index.twig' );
 Timber::render( $templates, $context, 10600, TimberLoader::CACHE_OBJECT);

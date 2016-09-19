@@ -90,8 +90,6 @@ function add_to_twig( $twig ) {
 							return 0;
 						});
 
-				error_log(print_r(count($images), true));
-
 				if(count($images)) {
 				  $img = new TimberImage($images[count($images) - 1]->image['id']);
 					return $img;

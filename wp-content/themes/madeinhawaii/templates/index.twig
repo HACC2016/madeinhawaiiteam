@@ -34,6 +34,7 @@
 					{% include 'product-list/product-list.twig' with {
 						products: products,
 						categories: categories,
+						pagination: pagination,
 						defaults: defaults
 				} only %}
 				{% else %}
