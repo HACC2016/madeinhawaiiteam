@@ -78,7 +78,7 @@ function add_to_twig( $twig ) {
 					});
 
 				if(count($images)) {
-				  $img = new TimberImage($images[0]->image['id']);
+				  $img = new TimberImage($images[count($images) - 1]->image['id']);
 					return $img;
 				}
 				return new TimberImage('https://placehold.it/600x300');
