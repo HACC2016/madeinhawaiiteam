@@ -1,13 +1,15 @@
 <div class="row categories">
-    <h5 class="ma0">
-      <a href="#" class="btn btn--sm btn--gray filter-by-category">
-        Filter by categories
-      </a>
-    </h5>
-    <hr class="mv2 mh0">
-    <ul class="list tree">
-      {{ fn('walk_category_tree', categories, 4, defaults) }}
-    </ul>
+    {% if categories %}
+      <h5 class="ma0">
+        <a href="#" class="btn btn--sm btn--gray filter-by-category">
+          Filter by categories
+        </a>
+      </h5>
+      <hr class="mv2 mh0">
+      <ul class="list tree">
+        {{ fn('walk_category_tree', categories, 4, defaults) }}
+      </ul>
+    {% endif %}
   </div>
   <div class="row pv2 mt2 mt0--ns product-list">
     {% for product in products %}
@@ -18,7 +20,11 @@
           <div class="dt w-100 mt1">
             <div class="dtc">
               <h1 class="f5 f4-ns mv0"><a href="{{ product.link }}" class="link black">{{ product.title}}</a></h1>
-              <p class="mv1 gray">{{ product.author }}</p>
+              <p class="mv1">
+                <a class="link gray dim" href="/author/{{product.author.user_login}}/">
+                  {{ product.author }}
+                </a>
+              </p>
             </div>
           </div>
         </div>

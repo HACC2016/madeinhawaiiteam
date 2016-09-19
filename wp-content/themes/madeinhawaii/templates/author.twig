@@ -3,20 +3,6 @@
 {% block content %}
 <div class="container">
 	<div class="col-3--desktop br b--light-silver">
-		<h4>Products</h4>
-		<ul class="list pa0">
-		{% for post in posts %}
-			{% set post = TimberPost(post) %}
-		  <li class="mr2 bb b--light-silver pv2">
-				<a href="/product/{{ post.post_name }}" class="f4 b mr2 pa1 link dim gray">
-					{{ post.post_title }}
-				</a>
-			</li>
-		{% endfor %}
-		</ul>
-	</div>
-	<div class="col-9">
-		<h1 class="bb b--light-silver pb3"> {{ author.display_name }} </h1>
 		<p>
 			{% if author.address %}
 				<span class="b">Address:&nbsp;</span>{{ author.address }} {{ author.address2 }}
@@ -45,41 +31,44 @@
 		</p>
 		{% endif %}
 
-		<div class="row">
 			{% if author.services %}
-				<div class="col-4--desktop">
-					<h5 class="pt2">
-						Services
-					</h5>
-					<ul class="list pa0">
-						{% for service in author.services %}
-							<li class="pv1 bb b--light-silver">{{ service }}</li>
-						{% endfor %}
-					</ul>
-				</div>
+				<h4 class="pt2">Services</h4>
+				<ul class="list pa0 pr4">
+					{% for service in author.services %}
+						<li class="pv1 ttc">{{ service }}</li>
+					{% endfor %}
+				</ul>
 			{% endif %}
 			{% if author.type_of_business %}
-				<div class="col-4--desktop">
-					<h5 class="pt2">Type Of Business</h5>
-						<ul class="list pa0">
-							{% for type in author.type_of_business %}
-								<li class="pv1 bb b--light-silver">{{ type }}</li>
-							{% endfor %}
-						</ul>
-					</h5>
-				</div>
-			{% endif %}
-			{% if author.market %}
-			<div class="col-4--desktop">
-				<h5 class="pt2">Market</h5>
-					<ul class="list pa0">
-						{% for market in author.market %}
-							<li class="pv1 bb b--light-silver">{{ market }}</li>
+				<h5 class="pt2">Type Of Business</h5>
+					<ul class="list pa0 pr4">
+						{% for type in author.type_of_business %}
+							<li class="pv1 ttc">{{ type }}</li>
 						{% endfor %}
 					</ul>
 				</h5>
-			</div>
 			{% endif %}
+			{% if author.market %}
+				<h4 class="pt2">Market</h4>
+					<ul class="list pa0 pr4">
+						{% for market in author.market %}
+							<li class="pv1 ttc">{{ market }}</li>
+						{% endfor %}
+					</ul>
+				</h5>
+			{% endif %}
+	</div>
+
+	<div class="col-9">
+		<h1 class="bb b--light-silver pb3"> {{ author.display_name }} </h1>
+
+		<h4>Products</h4>
+		{% include 'product-list/product-list.twig' with {
+			products: posts
+		} only %}
+
+
+
 		</div>
 	</div>
 </div>

@@ -16,7 +16,6 @@ $templates = array( 'search.twig', 'archive.twig', 'index.twig' );
 $context = Timber::get_context();
 
 $search = $_GET['s'];
-$context['page'] = $page;
 $context['title'] = 'Search results for &quot;'. get_search_query() . "&quot;";
 $products =
   Timber::get_posts(
