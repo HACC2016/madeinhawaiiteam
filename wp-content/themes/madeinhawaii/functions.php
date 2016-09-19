@@ -10,7 +10,9 @@ if ( ! class_exists( 'Timber' ) ) {
 use Qaribou\Collection\ImmArray;
 
 require('routes/index.php');
+require('fields/user_fields.php');
 require('post-types/product.php');
+require('post-types/legacy-user.php');
 
 Timber::$dirname = array('templates', 'components', 'modules');
 

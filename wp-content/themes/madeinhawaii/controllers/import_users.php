@@ -1,276 +1,119 @@
 <?php
-use League\Csv\Reader;
-use Qaribou\Collection\ImmArray;
+  use League\Csv\Reader;
+  use Qaribou\Collection\ImmArray;
 
-$reader = Reader::createFromPath('_doc/vendors.csv');
-$results = ImmArray::fromArray($reader->fetchAll());
+  $reader = Reader::createFromPath('_doc/vendors.csv');
+  $results = ImmArray::fromArray($reader->fetchAll());
+  /*
+   prodid
+   prodname
+   active
+   omit
+   needsupdate
+   needsupdatese
+   updated
+   MP
+   address
+   city
+   state
+   zip
+   island
+   phone1
+   phone2
+   fax_pre
+   fax
+   website
+   email
+   certified
+   country
+   estyr
+   products
+   products_info
+   notes1
+   notes2
+   employ
+   annual_volume
+   exporter
+   export_sales
+   title1
+   salutation1
+   salutation2
+   */
+  global $wpdb;
+  $str =
+    $results
+      ->map(function($row) use($wpdb) {
+        $fields = ImmArray::fromArray(acf_field_group::get_fields(null, 30));
+        $mapping = [
+          'active' => 3,
+          'omit' => 4,
+          'address' => 7,
+          'city' => 8,
+          'state' => 9,
+          'zip' => 10,
+          'island' => 11,
+          'phone1' => 12,
+          'phone2' => 13,
+          'fax_pre' => 14,
+          'fax' => 15,
+          'website' => 16,
+          'certified' => 18,
+          'country' => 19,
+          'established_year' => 20,
+        ];
 
+        $id = intval($row[0]);
+        if(!empty($row[17])) {
+          return;
+        }
 
-/**
- *  32 => tob_grower
- *
- */
+        $nicename = sanitize_key($row[1]);
 
-$types = [
-  32 => 'grower',
-  33 => 'distributor',
-  34 => 'wholesaler',
-  35 => 'processor',
-  36 => 'manufacturer',
-  37 => 'retailer'
-];
+        $args = [
+          'ID' => $id,
+          'user_nicename' => substr($nicename, 0, 50),
+          'user_login' => substr($nicename, 0, 60),
+          'user_url' => $row[16],
+          'user_email' => 'madewithaloha@hawaii.gov',
+          'display_name' => $row[1],
+          'user_status' => 0,
+          'user_activation_key' => '',
+          'user_registered' => date("Y-m-d H:i:s"),
+          'user_pass' => ''
+        ];
+        $arg_format = [
+            '%d',
+            '%s',
+            '%s',
+            '%s',
+            '%s',
+            '%s',
+            '%d',
+            '%s',
+            '%s'
+          ];
+        $user = new WP_User($id);
+        if(!$user->ID) {
+          $res = $wpdb->insert('wp_users', $args, $arg_format);
+        } else {
+          // shift off id
+          array_shift($args);
+          array_shift($arg_format);
 
-$services = [
-  39 => 'mailorder',
-  40 => 'delivery',
-  41 => 'packing',
-  42 => 'growing',
-  43 => 'labeling',
-  44 => 'bulk',
-  45 => 'retail'
-];
+          $res = $wpdb->update('wp_users', $args, ['ID' => $id], $arg_format);
+        }
+        if(!$res) {
+          die(var_dump($args));
+        }
+        foreach($mapping as $key => $index) {
+          $field = $fields->filter(function($field) use($key) {
+            $field['key'] == $key;
+          })[0];
+          update_user_meta($id, $key, $row[$index]);
+          update_user_meta($id, '_' . $key, $field['key']);
+        }
+        return $row[1];
+      });
+    echo $str->join('<br>');
 
-$markets = [
-  48 => 'hawaii',
-  49 => 'guam',
-  50 => 'china',
-  51 => 'australia',
-  52 => 'usmain',
-  53 => 'japan',
-  54 => 'hongkong',
-  55 => 'europe',
-  56 => 'canada',
-  57 => 'korea',
-  58 => 'seasia'
-];
-
-$mapping = [
-  "ffruit_bananas",
-  "ffruit_citrus",
-  "ffruit_papaya",
-  "ffruit_avocado",
-  "ffruit_exotictrop",
-  "ffruit_pineapple",
-  "ffruit_other",
-  "ffruit_other",
-  "fruitpuree_papaya",
-  "fruitpuree_guava",
-  "fruitpuree_other",
-  "fruitpuree_otherdesc",
-  "fveg_cabbages",
-  "fveg_otherleafy",
-  "fveg_ginger",
-  "fveg_onions",
-  "fveg_taro",
-  "fveg_otherroot",
-  "fveg_herbs",
-  "fveg_other",
-  "fveg_otherdesc",
-  "macnut_plainroasted",
-  "macnut_candiedchoco",
-  "macnut_other",
-  "macnut_otherdesc",
-  "bsfood_cookies",
-  "bsfood_crackers",
-  "bsfood_candies",
-  "bsfood_chips",
-  "bsfood_driedfruits",
-  "bsfood_crackseed",
-  "bsfood_other",
-  "bsfood_otherdesc",
-  "cond_sauces",
-  "cond_syrups",
-  "cond_spreads",
-  "cond_jamsjellies",
-  "cond_dressing",
-  "cond_seasonmix",
-  "cond_soups",
-  "cond_presfruits",
-  "cond_pickveg",
-  "cond_other",
-  "cond_otherdesc",
-  "coffee_bigislandexkona",
-  "coffee_kona",
-  "coffee_molokai",
-  "coffee_maui",
-  "coffee_kauai",
-  "coffee_oahu",
-  "bev_tea",
-  "bev_drinkmix",
-  "bev_concentrates",
-  "bev_juices",
-  "bev_alcoholic",
-  "bev_other",
-  "bev_otherdesc",
-  "meat_beef",
-  "meat_pork",
-  "meat_poultry",
-  "meat_driedsmoke",
-  "meat_other",
-  "meat_otherdesc",
-  "dairy_icecream",
-  "dairy",
-  "milk",
-  "dairy_other",
-  "dairy_otherdesc",
-  "oseafood_fresh",
-  "oseafood_frozen",
-  "oseafood_processed",
-  "oseafood_other",
-  "oseafood_other",
-  "aqua_fresh",
-  "aqua_frozen",
-  "aqua_processed",
-  "aqua_other",
-  "aqua_otherdesc",
-  "health_prod",
-  "health_proddesc",
-  "mfg_other",
-  "mfg_otherdesc",
-  "floral_anthuriums",
-  "floral_anthuriumsdesc",
-  "floral_other",
-  "floral_otherdesc",
-  "floral_foliage",
-  "floral_foliagedesc",
-  "floral_leis",
-  "floral_leisdesc",
-  "orch_dendrobiums",
-  "orch_oncidium",
-  "orch_vandas",
-  "orch_phalaenopsis",
-  "orch_cymbidium",
-  "orch_other",
-  "orch_otherdesc",
-  "trop_heloncias",
-  "trop_birdparadise",
-  "trop_gingers",
-  "trop_other",
-  "trop_otherdesc",
-  "protea_kings",
-  "protea_queens",
-  "protea_banksia",
-  "protea_minks",
-  "protea_pincushions",
-  "protea_duchess",
-  "protea_other",
-  "protea_otherdesc",
-  "potplant_dracaena",
-  "potplant_palms",
-  "potplant_bromeliads",
-  "potplant_ferns",
-  "potplant_ﬁcus",
-  "potplant_succulents",
-  "potplant_bonsai",
-  "potplant_other",
-  "potplant_otherdesc",
-  "potorch_denbrobiums",
-  "potorch_phalaenopsis",
-  "potorch_cattleya",
-  "potorch_oncidium",
-  "potorch_hybrids",
-  "potorch_species",
-  "potorch_other",
-  "potorch_otherdesc",
-  "potflower_chrysanthemums",
-  "potflower_poiniettias",
-  "potflower_gesneriads",
-  "potflower_bulbs",
-  "potflower_anthuriums",
-  "potflower_hibiscus",
-  "potflower_bromeliads",
-  "potflower_other",
-  "potflower_otherdesc",
-  "landplants_palms",
-  "landplants_shrubs",
-  "landplants_bedding",
-  "landplants_groundcover",
-  "landplants_specimentree",
-  "landplants_vines",
-  "landplants_lowerplants",
-  "Iandplants_lowertrees",
-  "landplants_other",
-  "landplants_otherdesc",
-  "propag_seeds",
-  "propag_cuttings",
-  "propag_liners",
-  "propag_plugs",
-  "propag_micropropagative",
-  "propag_other",
-  "propag_otherdesc",
-];
-
-foreach($results as $row) {
-  // die(var_dump($row));
-  $id = intval($row[0]);
-  $these_types = [];
-  foreach ($types as $i => $value) {
-    if(boolval($row[$i]) === TRUE) {
-      $these_types[] = $value;
-    }
-  }
-  update_user_meta($id, 'products', $these_types);
-  update_user_meta($id, '_products', 'field_57c687c497a14');
-  $these_services = [];
-  foreach ($services as $i => $value) {
-    if(boolval($row[$i]) === TRUE) {
-      $these_services[] = $value;
-    }
-  }
-  update_user_meta($id, 'services', $these_types);
-  update_user_meta($id, '_services', 'field_57cdfc28f278b');
-
-
-  $these_markets = [];
-  foreach ($markets as $i => $value) {
-    if(boolval($row[$i]) === TRUE) {
-      $these_markets[] = $value;
-    }
-  }
-  update_user_meta($id, 'services', $these_types);
-  update_user_meta($id, '_services', 'field_57cdfc28f278b');
-
-  for ($i=62 ; $i < 152 ; $i++) {
-    $cats = [];
-    $args = [
-      'post_type' => 'product',
-      'post_status' => 'publish',
-      'post_author' => $id
-    ];
-    if(boolval($row[$i]) === TRUE) {
-      $parts = preg_split('/_/', $mapping[$i - 62]);
-      if(substr_count($parts[1], 'other')) {
-        continue;
-      }
-
-      $parent = get_category_by_slug($parts[0]);
-      if($parent) {
-        $cats[] = (string) $parent->term_id;
-      }
-
-      $child = get_category_by_slug($parts[1]);
-      if($child) {
-        $cats[] = (string) $child->term_id;
-        $args['post_title'] = $child->name;
-      } else {
-        $args['post_title'] = $parts[1];
-      }
-
-      $args['post_category'] = $cats;
-      $args['meta_input'] = [
-        'user' => $id,
-        '_user' => 'field_57cde35560546',
-        'categories' => $cats,
-        '_categories' => 'field_57cde382d6120',
-        'in_stock' => 0,
-        '_in_stock' => 'field_57cde416d5297',
-        'coming_soon' => 0,
-        '_coming_soon' => 'field_57cdf4c89484e',
-        'image' => '',
-        '_image' => 'field_57cde420d5298'
-      ];
-      wp_insert_post($args);
-    }
-  }
-}
 ?>
