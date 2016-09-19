@@ -65,7 +65,7 @@ function add_to_twig( $twig ) {
 			new Twig_SimpleFunction('register_form', function() {
 				acf_form([
 					'post_id' => 'new',
-					'field_groups' => [30]
+					'field_groups' => ['acf_user-fields']
 				]);
 			})
 		);
