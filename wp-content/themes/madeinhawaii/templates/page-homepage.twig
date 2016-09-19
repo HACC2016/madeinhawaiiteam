@@ -1,44 +1,16 @@
-{% extends "base.twig" %}
+{% extends "base-home.twig" %}
 
 {% block content %}
-	<div class="container">
-		<div class="row">
-			<div class="col-10 shift-1">
-				<form action="/" type="GET">
-					<label for="s" class="label black mb1">Search for a product or vendor</label>
-					<input name="s" class="col-12 input-reset ba pa2" type="text" class="input">
-				</form>
-			</div>
+	<div class="row relative">
+		<div class="home-input w-50">
+			<form action="/" type="GET">
+				<label for="s" class="label white fl w-100 mb1">Search</label>
+				<input name="s" class="col-12 input-reset ba b--white pa2" type="text" class="input">
+			</form>
 		</div>
-		<div class="row">
-			<div class="col-10 shift-1">
-			  <a href="/products" class="link dim black b f2 f1-ns mt3 tc db">Products</a>
-				<nav class="pa3 pa4-ns">
-				  <div class="tc pb3">
-						{% for product in products %}
-					    <a
-								class="link dim gray f6 f5-ns dib mr3"
-								href="{{ product.link }}"
-							 >{{ product.post_title }}</a>
-						{% endfor %}
-				  </div>
-				</nav>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-10 shift-1">
-				<a href="/vendors" class="link dim black b f2 f1-ns mt3 tc db">Vendors</a>
-				<nav class="pa3 pa4-ns">
-					<div class="tc pb3">
-						{% for user in users %}
-							<a
-								class="link dim gray f6 f5-ns dib mr3"
-								href="/author/{{ user.user_login }}"
-							 >{{ user.display_name }}</a>
-						{% endfor %}
-					</div>
-				</nav>
-			</div>
+		<div class="home-bg">
+			<div class="mask"></div>
+			<img src="{{ site.theme.link }}/img/home-rainbow.jpg" class="bg" alt="Made In Hawaii">
 		</div>
 	</div>
 {% endblock %}

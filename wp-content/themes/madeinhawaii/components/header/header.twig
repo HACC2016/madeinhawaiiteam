@@ -1,0 +1,22 @@
+	<header class="bg-black-90 fixed w-100 ph3 pv3 pv2-ns ph4-m ph5-l header">
+		<div class="container">
+			<nav class="f6 fw6 tracked fl">
+				<a class="link dim black dib mr3" href="/">
+					<img class="header-logo"
+								src="{{ site.theme.link }}/img/hdoa-logo.png" alt="" />
+					<span class="header-text">Made In Hawaii</span>
+					</a>
+		  </nav>
+			<nav class="f6 fw6 ttu tracked tr fr">
+				{% if menu.get_items %}
+					{% for item in menu.get_items %}
+							<a
+								class="link dim black dib mr3 tr"
+								href="{{item.get_link}}">
+								{{item.title}}
+							</a>
+					{% endfor %}
+				{% endif %}
+			</nav>
+		</div>
+	</header>

@@ -1,0 +1,21 @@
+{% block html_head_container %}
+
+{% include 'html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+	{% include 'icons.twig' %}
+
+	<body class="{{body_class}}" data-template="base.twig">
+
+		{% include 'header/header.twig' %}
+		<main>
+			{% block content %}{% endblock %}
+		</main>
+
+		{% include 'footer/footer.twig' %}
+	</body>
+	<script type="text/javascript" src="{{ site.theme.link }}/js/bundle.js"></script>
+	{% block footer_scripts %}{% endblock %}
+</html>
