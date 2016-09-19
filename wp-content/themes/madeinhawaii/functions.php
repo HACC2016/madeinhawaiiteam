@@ -7,6 +7,8 @@ if ( ! class_exists( 'Timber' ) ) {
 	return;
 }
 
+use Qaribou\Collection\ImmArray;
+
 require('routes/index.php');
 require('post-types/product.php');
 
@@ -24,6 +26,9 @@ class MadeInHawaii extends TimberSite {
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
 		add_action( 'admin_menu', [$this, 'remove_menus']);
 		add_theme_support( 'admin-bar', array( 'callback' => '__return_false') );
+
+		add_image_size('thumb', 600, 300, true);
+
 		parent::__construct();
 	}
 
@@ -58,6 +63,25 @@ function add_to_twig( $twig ) {
 					'post_id' => 'new',
 					'field_groups' => [30]
 				]);
+			})
+		);
+
+		$twig->addFunction(
+			new Twig_SimpleFunction('product_image', function($product) {
+				if(!empty($product->image)) {
+					return new TimberImage($product->image);
+				}
+				$terms = ImmArray::fromArray($product->terms('category'));
+				$images =
+					$terms->filter(function($term) {
+						return $term->image;
+					});
+
+				if(count($images)) {
+				  $img = new TimberImage($images[0]->image['id']);
+					return $img;
+				}
+				return new TimberImage('https://placehold.it/600x300');
 			})
 		);
 
