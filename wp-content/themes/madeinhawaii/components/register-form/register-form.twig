@@ -11,9 +11,12 @@
       </fieldset>
     </div>
 
-    {{ register_form() }}
+    <div>
+      {{ register_form() }}
+    </div>
 
-    <input type="hidden" name="image">
-    <input type="submit" class="button button__submit" value="Submit">
+    <div class="row register__submit tc">
+      <input type="submit" class="btn btn--blue" value="Submit">
+    </div>
   </form>
 </div>

@@ -3,9 +3,6 @@
 .register {
   &__container {
     background: #FEFEFE;
-    lost-center: 60rem;
-    padding: 2.5% 5%;
-    margin: 2em auto 0;
 
     @include media($handheld) {
       margin: 4em 1em 0;
@@ -47,7 +44,7 @@
     lost-column: 4/12;
 
     @include media($desktop) {
-      lost-column: 3/12;
+      lost-column: 1;
     }
   }
 }
@@ -134,12 +131,24 @@
   width: 50%;
 }
 
+//
+// .register {
+//   .field_key-field_57c6704659d66,
+//   .field_key-field_57c6704e59d67,
+//   .field_key-field_57c687c497a14,
+//   .field_key-field_57c6712159d73 {
+//     display: none;
+//   }
+// }
 
-.register {
-  .field_key-field_57c6704659d66,
-  .field_key-field_57c6704e59d67,
-  .field_key-field_57c687c497a14,
-  .field_key-field_57c6712159d73 {
-    display: none;
-  }
+.field_type-text,
+.field_type-number {
+  lost-column: 1/2;
+}
+
+.field_type-checkbox,
+.field_type-message,
+.field_key-field_57c670d559d68,
+.register__submit  {
+  lost-column: 1;
 }
