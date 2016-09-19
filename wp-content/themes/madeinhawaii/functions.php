@@ -73,9 +73,24 @@ function add_to_twig( $twig ) {
 				}
 				$terms = ImmArray::fromArray($product->terms('category'));
 				$images =
-					$terms->filter(function($term) {
-						return $term->image;
-					});
+					$terms
+						->filter(function($term) {
+							return $term->image;
+						})
+						->sort(function($one, $two) {
+							$first_ancestors = count(get_ancestors($one->term_id, 'category'));
+							$second_ancestors = count(get_ancestors($two->term_id, 'category'));
+							if($first_ancestors < $second_ancestors) {
+								return -1;
+							}
+
+							if($first_ancestors >  $second_ancestors) {
+								return 1;
+							}
+							return 0;
+						});
+
+				error_log(print_r(count($images), true));
 
 				if(count($images)) {
 				  $img = new TimberImage($images[count($images) - 1]->image['id']);
