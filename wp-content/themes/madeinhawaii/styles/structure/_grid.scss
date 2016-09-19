@@ -2,9 +2,6 @@ $handheld: new-breakpoint(max-width em(1023px));
 $tablet: new-breakpoint(min-width em(1024px));
 $desktop: new-breakpoint(min-width em(1280px));
 
-main {
-  padding-top: 7em;
-}
 
 .container {
   @include outer-container;

@@ -7,5 +7,21 @@
   &-nav {
     @include span-columns(6);
     @include omega(2n);
+
+    > a {
+      margin-right: 0.75em;
+    }
+  }
+}
+
+.social-icon {
+  > .icon {
+    @include size(2em);
+    fill: $white;
+    margin-right: 0.75em;
+  }
+
+  > .text {
+    display: none;
   }
 }

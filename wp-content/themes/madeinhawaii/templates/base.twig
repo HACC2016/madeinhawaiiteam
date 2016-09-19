@@ -5,28 +5,11 @@
 	{% endblock %}
 	</head>
 {% endblock %}
+	{% include 'icons.twig' %}
 
 	<body class="{{body_class}}" data-template="base.twig">
-		<header class="bg-black-90 fixed w-100 ph3 pv3 pv2-ns ph4-m ph5-l header">
-			<nav class="f6 fw6 tracked fl">
-				<a class="link dim black dib mr3" href="/">
-					<img class="header-logo"
-								src="{{ site.theme.link }}/img/hdoa-logo.png" alt="" />
-					<span class="header-text">Made In Hawaii</span>
-					</a>
-		  </nav>
-			<nav class="f6 fw6 ttu tracked tr fr">
-				{% if menu.get_items %}
-					{% for item in menu.get_items %}
-							<a
-								class="link dim black dib mr3 tr"
-								href="{{item.get_link}}">
-								{{item.title}}
-							</a>
-					{% endfor %}
-				{% endif %}
-			</nav>
-		</header>
+
+		{% include 'header/header.twig' %}
 
 		<main>
 			<div class="container">
@@ -34,19 +17,7 @@
 			</div>
 		</main>
 
-		<footer class="footer">
-			<div class="container">
-				<nav class="footer-nav -left">
-					<a class="link white ttu mr2" href="/about">About Us</a>
-					<a class="link white ttu" href="/terms">Terms of Service</a>
-				</nav>
-				<nav class="footer-nav -right tr">
-					<a class="link white ttu" href="#" class="social-icon">Facebook</a>
-					<a class="link white ttu" href="#" class="social-icon">Twitter</a>
-					<a class="link white ttu" href="#" class="social-icon">Youtube</a>
-				</nav>
-			</div>
-		</footer>
+		{% include 'footer/footer.twig' %}
 	</body>
 	<script type="text/javascript" src="{{ site.theme.link }}/js/bundle.js"></script>
 	{% block footer_scripts %}{% endblock %}

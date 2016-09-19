@@ -4,6 +4,9 @@ body[data-template="base.twig"] {
 
 main {
   min-height: calc(100vh - 120px);
+  padding-top: 7em;
+
+
   > .container {
     padding: 2em;
     background: white;
@@ -11,4 +14,16 @@ main {
     margin: 0 auto 2em;
     box-shadow: 0 0 10px rgba($black, 0.3);
   }
+
+  .home.page & {
+    padding-top: 5.7em;
+    max-height: 851px;
+    > .container {
+      padding: 0;
+    }
+  }
+}
+
+body > svg {
+  @include position(absolute, null null null -99999px);
 }

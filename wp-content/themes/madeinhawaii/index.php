@@ -20,15 +20,12 @@ if ( ! class_exists( 'Timber' ) ) {
 	return;
 }
 $context = Timber::get_context();
-$page = $_GET['page'] ?? 1;
-$context['page'] = $page;
 $users =
 	ImmArray::fromArray(
 		get_users([
 			'fields' => 'ID',
 			'number' => 10,
 			'role__not_in' => ['Administrator'],
-			'paged' => $page
 		])
 	);
 

@@ -1,0 +1,12 @@
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  > .product {
+    lost-column: 1/3 flex;
+  }
+}
+
+body {
+  background: $black;
+}

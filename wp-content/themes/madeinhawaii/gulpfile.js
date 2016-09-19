@@ -3,6 +3,8 @@ var magicImporter = require('node-sass-magic-importer')
 var $ = require('gulp-load-plugins')()
 var bs = require('browser-sync')
 var webpackStream = require('webpack-stream')
+var lost = require('lost')
+var path = require('path')
 
 var paths = {
   sass: 'styles/**/*.scss',
@@ -17,9 +19,39 @@ gulp.task('sass', function() {
     .pipe($.sass({
       importer: magicImporter
     }))
+    .pipe($.postcss([
+      lost
+    ]))
     .pipe(gulp.dest('.'))
     .pipe(bs.stream({match: '**/*.css'}))
 })
+
+gulp.task('svg', function() {
+  var svgs =
+    gulp.src('./icons/*.svg')
+      .pipe($.svgmin(function (file) {
+        var prefix = path.basename(file.relative, path.extname(file.relative));
+          return {
+            plugins: [{
+              cleanupIDs: {
+                prefix: prefix + '-',
+                minify: true
+              }
+            }]
+          }
+      }))
+      .pipe($.svgstore())
+
+    function fileContents(filePath, file) {
+      return file.contents.toString();
+    }
+
+    return gulp
+      .src('./templates/icons.twig')
+      .pipe($.inject(svgs, {transform: fileContents}))
+      .pipe(gulp.dest('./templates'))
+});
+
 
 gulp.task('js', function() {
   gulp

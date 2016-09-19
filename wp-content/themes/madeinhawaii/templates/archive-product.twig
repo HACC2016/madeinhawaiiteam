@@ -1,47 +1,16 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<div class="col-12 col-2--desktop category__sidebar hide-on-mobile">
+	<div class="col-2--desktop category__sidebar hide-on-mobile">
 		<form action="/" type="GET">
 			<label for="s" class="label black mb1">Search</label>
 			<input name="s" class="col-12 input-reset ba pa2" type="text" class="input">
 		</form>
 	</div>
-	<div class="col-12 col-9--desktop shift-1--desktop">
-		<div class="row categories">
-			<h5 class="ma0">
-				<a href="#" class="btn btn--sm btn--gray filter-by-category">
-					Filter by categories
-				</a>
-			</h5>
-			<hr class="mv2 mh0">
-			<ul class="list tree">
-				{{ fn('walk_category_tree', categories, 4, defaults) }}
-			</ul>
-		</div>
-		<div class="row pv2 mt2 mt0--ns">
-			{% for product in posts %}
-			  <article class="br2 ba dark-gray b--black-10 col-4--desktop mt3">
-			    <img src="//placehold.it/600x300" class="db w-100 br2 br--top" alt="">
-			    <div class="pa2 ph3-ns pb3-ns">
-			      <div class="dt w-100 mt1">
-			        <div class="dtc">
-			          <h1 class="f5 f4-ns mv0"><a href="{{ product.link }}" class="link black">{{ product.title}}</a></h1>
-								<p class="mv1 gray">{{ product.author }}</p>
-			        </div>
-			      </div>
-			    </div>
-			  </article>
-			{% endfor %}
-
-		</div>
-		<div class="mt4 pa4 bt b--light-silver">
-			{% if pagination.prev %}
-				<a class="fl f5 link black" href="{{ pagination.prev.link }}">&laquo;&nbsp;Prev</a>
-			{% endif %}
-			{% if pagination.next %}
-				<a class="fr f5 link black" href="{{ pagination.next.link }}">Next&nbsp;&raquo;</a>
-			{% endif %}
-		</div>
+	<div class="col-9--desktop">
+		{% include 'product-list/product-list.twig' with {
+			products: posts,
+			pagination: pagination
+		} %}
 	</div>
 {% endblock %}

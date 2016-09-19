@@ -2,56 +2,43 @@
 
 {% block content %}
 	<div class="container ph4 ph0--ns">
-		<div class="row">
-			<div class="col-10 shift-1">
-				<form action="/" type="GET">
-					<label for="s" class="label black mb1">Search for a product or vendor</label>
-					<input name="s" class="col-12 input-reset ba pa2" type="text" class="input">
-				</form>
-			</div>
-		</div>
 		{% if title %}
 			<h1>{{ title }}</h1>
 		{% endif %}
-		<div class="col-12 col-8--tablet col-6--desktop">
-			<h1 class="f4 bold center">Vendors</h1>
-			{% if users %}
-				<ul class="list pl0 ml0 mr4 ba b--light-silver br3">
-					{% for user in users %}
-						{% set user = TimberUser(user) %}
-					  <li class="ph3 pv2 bb b--light-silver">
-							<a class="link black" href="{{ user.link }}">
-								{{ user.display_name }}
-							</a>
-						</li>
-					{% endfor %}
-				</ul>
-			{% else %}
-			    No vendors found
-			{% endif %}
+		<div class="w-100 col-8--tablet col-3--desktop">
+			<form action="/" type="GET">
+				<label for="s" class="label black mb1">Search</label>
+				<input name="s" class="col-12 input-reset ba pa2" type="text" class="input">
+			</form>
+			<div class="mt3 fl w-100">
+				{% if users %}
+					<h1 class="f4 bold center mt2">Vendors</h1>
+					<ul class="list pl0 ml0 ba b--light-silver br3">
+						{% for user in users %}
+							{% set user = TimberUser(user) %}
+						  <li class="ph3 pv2 bb b--light-silver">
+								<a class="link black" href="{{ user.link }}">
+									{{ user.display_name }}
+								</a>
+							</li>
+						{% endfor %}
+					</ul>
+				{% else %}
+				    No vendors found
+				{% endif %}
+			</div>
 		</div>
-		<div class="col-12 col-4--tablet col-6--desktop omega bl-ns pl4-ns">
+		<div class="w-100 col-4--tablet col-8--desktop omega pl4-ns">
 			<h1 class="f4 bold center">Products</h1>
 				{% if products %}
-					<ul class="list pl0 ml0 center ba b--light-silver br3">
-							{% for product in products %}
-								{% set author = TimberUser(product.post_author) %}
-								{% if author.display_name %}
-									  <li class="ph3 pv2 bb bb b--light-silver">
-											<a class="link black"
-												 href="{{ product.link }}">{{ product.title }}</a>
-											<br>
-											<a class="link gray" href="/author/{{ author.user_login }}">
-												{{ author.display_name }}
-											</a>
-										</li>
-								{% endif %}
-							{% endfor %}
-					</ul>
+					{% include 'product-list/product-list.twig' with {
+						products: products,
+						categories: categories,
+						defaults: defaults
+				} only %}
 				{% else %}
 				    No Products Found
 				{% endif %}
 		</div>
-		<div class="categories"></div>
 	</div>
 {% endblock %}
