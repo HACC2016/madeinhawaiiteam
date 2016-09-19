@@ -13,10 +13,10 @@
 			{% if author.state %}{{- author.state -}}{% endif %}
 		</p>
 
-		{% if author.email and author.email != '##' %}
+		{% if author.user_email %}
 		<p>
-			<span class="b">Email:</span><a href="mailto:{{author.email}}" class="link black">
-				{{ author.email }}
+			<span class="b">Email:</span><a href="mailto:{{author.user_email}}" class="link black">
+				{{ author.user_email }}
 			</a>
 		</p>
 		{% endif %}
