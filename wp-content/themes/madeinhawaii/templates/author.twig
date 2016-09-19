@@ -60,14 +60,10 @@
 	</div>
 
 	<div class="col-9">
-		<h1 class="bb b--light-silver pb3"> {{ author.display_name }} </h1>
-
-		<h4>Products</h4>
+		<h1> {{ author.display_name }} </h1>
 		{% include 'product-list/product-list.twig' with {
 			products: posts
 		} only %}
-
-
 
 		</div>
 	</div>
