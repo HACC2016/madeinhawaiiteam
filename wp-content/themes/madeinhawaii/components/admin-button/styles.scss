@@ -1,0 +1,24 @@
+///
+/// @name admin-button
+/// @author AMS Product
+///
+
+.admin-button {
+  @include transition(background 0.35s, padding 0.35s);
+  font-weight: 600;
+  font-size: rem(16px);
+  position: fixed;
+  letter-spacing: 1px;
+  bottom: 20px;
+  right: 0px;
+  background: $red;
+  color: $white;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 5px 20px 4px;
+  z-index: 999;
+
+  &:hover {
+    padding-right: 35px;
+  }
+}

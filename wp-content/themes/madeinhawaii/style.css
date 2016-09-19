@@ -6243,3 +6243,22 @@ ul {
 
 body {
   background: #111; }
+
+.admin-button {
+  -webkit-transition: background 0.35s, padding 0.35s;
+  -moz-transition: background 0.35s, padding 0.35s;
+  transition: background 0.35s, padding 0.35s;
+  font-weight: 600;
+  font-size: 1rem;
+  position: fixed;
+  letter-spacing: 1px;
+  bottom: 20px;
+  right: 0px;
+  background: #FF4136;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 5px 20px 4px;
+  z-index: 999; }
+  .admin-button:hover {
+    padding-right: 35px; }

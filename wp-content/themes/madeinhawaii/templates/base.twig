@@ -18,6 +18,9 @@
 		</main>
 
 		{% include 'footer/footer.twig' %}
+		{% if "administrator" in current_user.roles %}
+			{% include 'admin-button/admin-button.twig' %}
+		{% endif %}
 	</body>
 	<script type="text/javascript" src="{{ site.theme.link }}/js/bundle.js"></script>
 	{% block footer_scripts %}{% endblock %}

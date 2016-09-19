@@ -51,6 +51,7 @@ class MadeInHawaii extends TimberSite {
 	function add_to_context( $context ) {
 		$context['menu'] = new TimberMenu();
 		$context['site'] = $this;
+		$context['current_user'] = wp_get_current_user();
 		return $context;
 	}
 
@@ -97,6 +98,10 @@ function add_to_twig( $twig ) {
 				return new TimberImage('https://placehold.it/600x300');
 			})
 		);
+
+		$twig->addFunction(new Twig_SimpleFunction('admin_button', function($post) {
+	    return get_edit_post_link($post->ID, 'Edit');
+	  }));
 
 		$twig->addExtension( new Twig_Extension_StringLoader() );
 		return $twig;
