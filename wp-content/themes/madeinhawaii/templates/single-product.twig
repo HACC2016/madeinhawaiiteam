@@ -34,7 +34,7 @@
 				{% endif %}
 			</div>
 
-			<img src="http://placehold.it/600x400" alt="" />
+			<img src="{{ product_image(post).src('product') }}" alt="">
 			<h5>Availability</h5>
 			{{ product.product_status | default('In Stock')}}
 		</div>
