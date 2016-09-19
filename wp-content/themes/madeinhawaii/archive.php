@@ -59,6 +59,15 @@ $context['defaults'] = [
 		'use_desc_for_title'  => 1,
 ];
 
+set_query_var('tax_query', [
+        [
+            'taxonomy' => 'category',
+            'field' => 'slug',
+            'terms' => 'food'
+        ]
+		]
+);
+
 $context['page'] = get_query_var('paged');
 $context['posts'] = Timber::get_posts();
 $context['pagination'] = Timber::get_pagination();

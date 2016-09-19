@@ -18,8 +18,19 @@ $search = $_GET['s'];
 $context['title'] = 'Search results for &quot;'. get_search_query() . "&quot;";
 $products =
   Timber::get_posts(
-    ['post_type' => 'product', 's' => $search]
+    [
+      'post_type' => 'product',
+      's' => $search,
+      'tax_query' => [
+        [
+            'taxonomy' => 'category',
+            'field' => 'slug',
+            'terms' => 'food'
+        ]
+      ]
+    ]
   );
+
 
 $context['products'] = $products;
 
