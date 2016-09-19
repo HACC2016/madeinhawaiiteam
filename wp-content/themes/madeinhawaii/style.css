@@ -6240,6 +6240,20 @@ ul {
   .product-list > .product:nth-child(3n){
   margin-right: 0;
   margin-left: auto; }
+    @media screen and (max-width: 63.9375em) {
+      .product-list > .product {
+        flex: 0 0 auto;
+        width: calc(99.9% * 1/1 - (30px - 30px * 1/1)); }
+      .product-list > .product:nth-child(1n){
+    margin-right: 30px;
+    margin-left: 0; }
+      .product-list > .product:last-child{
+    margin-right: 0; }
+      .product-list > .product:nth-child(1n){
+    margin-right: 0;
+    margin-left: auto; } }
+    .product-list > .product > img {
+      width: 100%; }
 
 body {
   background: #111; }

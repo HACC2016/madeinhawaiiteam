@@ -33,12 +33,12 @@
 
   </div>
   {% if pagination %}
-    <div class="mt4 pa4 bt b--light-silver">
+    <div class="mt4">
       {% if pagination.prev %}
-        <a class="fl f5 link black" href="{{ pagination.prev.link }}">&laquo;&nbsp;Prev</a>
+        <a class="fl f6 btn btn--sm btn--gray" href="{{ pagination.prev.link }}">Prev</a>
       {% endif %}
       {% if pagination.next %}
-        <a class="fr f5 link black" href="{{ pagination.next.link }}">Next&nbsp;&raquo;</a>
+        <a class="fr f6 btn btn--sm btn--gray" href="{{ pagination.next.link }}">Next</a>
       {% endif %}
       </div>
     {% endif %}

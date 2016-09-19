@@ -5,7 +5,7 @@
 		{% if title %}
 			<h1>{{ title }}</h1>
 		{% endif %}
-		<div class="w-100 col-8--tablet col-3--desktop">
+		<div class="col-4--tablet col-3--desktop">
 			<form action="/" type="GET">
 				<label for="s" class="label black mb1">Search</label>
 				<input name="s" class="col-12 input-reset ba pa2" type="text" class="input">
@@ -28,7 +28,7 @@
 				{% endif %}
 			</div>
 		</div>
-		<div class="w-100 col-4--tablet col-8--desktop omega pl4-ns">
+		<div class="col-8--tablet col-9--desktop omega pl4-ns">
 			<h1 class="f4 bold center">Products</h1>
 				{% if products %}
 					{% include 'product-list/product-list.twig' with {

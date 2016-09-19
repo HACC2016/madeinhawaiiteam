@@ -4,6 +4,13 @@
 
   > .product {
     lost-column: 1/3 flex;
+    @include media($handheld) {
+      lost-column: 1/1 flex;
+    }
+
+    > img {
+      width: 100%;
+    }
   }
 }
 
