@@ -152,3 +152,36 @@
 .register__submit  {
   lost-column: 1;
 }
+
+#acf-certified {
+  ul {
+    overflow: visible;
+    margin: 0 0 12em;
+  }
+  li {
+    position: relative;
+    lost-column: 1/3;
+    font-size: 18px;
+    &:first-child,
+    &:nth-child(2) {
+      input {
+        &::after {
+          content: url(#{$theme}/img/made-with-aloha.jpg);
+        }
+      }
+    }
+    &:last-child {
+      input::after {
+        content: url(#{$theme}/img/hawaii-seals-of-quality-logo.jpg);
+        transform: translateX(-10%);
+      }
+    }
+  }
+  input {
+    margin-right: 5em !important;
+    &::after {
+      @include position(absolute, 2em null null 23%);
+      transform: translateX(20px);
+    }
+  }
+}
