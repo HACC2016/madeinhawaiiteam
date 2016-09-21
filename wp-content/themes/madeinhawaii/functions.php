@@ -37,9 +37,8 @@ class MadeInHawaii extends TimberSite {
 		parent::__construct();
 	}
 
-
 		function my_home_query( $query ) {
-      if ($query->is_archive && !is_admin() ) {
+      if ($query->is_category && !is_admin() ) {
         $query->set( 'post_type', ['product'] );
       }
     }
