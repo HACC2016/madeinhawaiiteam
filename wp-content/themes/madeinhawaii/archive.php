@@ -60,17 +60,7 @@ $context['defaults'] = [
 		'use_desc_for_title'  => 1,
 ];
 
-$wp_query->query_vars['tax_query'] =
-[
-	'relation' => 'AND',
-  [
-      'taxonomy' => 'category',
-      'field' => 'slug',
-      'terms' => 'food'
-  ]
-];
-
 $context['page'] = get_query_var('paged');
-$context['posts'] = Timber::get_posts($wp_query->query_vars);
+$context['posts'] = Timber::get_posts();
 $context['pagination'] = Timber::get_pagination();
 Timber::render( $templates, $context );

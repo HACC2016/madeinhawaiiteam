@@ -1,45 +1,36 @@
-<div class="row categories">
-    {% if categories %}
-      <h5 class="ma0">
-        <a href="#" class="btn btn--sm btn--gray filter-by-category">
-          Filter by categories
-        </a>
-      </h5>
-      <hr class="mv2 mh0">
-      <ul class="list tree">
-        {{ fn('walk_category_tree', categories, 4, defaults) }}
-      </ul>
-    {% endif %}
-  </div>
-  <div class="row pv2 mt2 mt0--ns product-list">
-    {% for product in products %}
-      <article class="br2 ba dark-gray b--black-10 mt3 product">
-        {% set img = product_image(product) %}
-        <img src="{{ img.src('thumb') }}" alt="" />
-        <div class="pa2 ph3-ns pb3-ns">
-          <div class="dt w-100 mt1">
-            <div class="dtc">
-              <h1 class="f5 f4-ns mv0"><a href="{{ product.link }}" class="link black">{{ product.title}}</a></h1>
-              <p class="mv1">
-                <a class="link gray dim" href="/author/{{product.author.user_login}}/">
-                  {{ product.author }}
-                </a>
-              </p>
-            </div>
+<div class="row pv2 mt2 mt0--ns product-list">
+  {% for product in products %}
+    <article class="br2 ba dark-gray b--black-10 mt3 product">
+      {% set img = product_image(product) %}
+      <img src="{{ img.src('thumb') }}" alt="" />
+      <div class="pa2 ph3-ns pb3-ns">
+        <div class="dt w-100 mt1">
+          <div class="dtc">
+            <h1 class="f5 f4-ns mv0"><a href="{{ product.link }}" class="link black">{{ product.title}}</a></h1>
+            <p class="mv1">
+              <a class="link gray dim" href="/author/{{product.author.user_login}}/">
+                {{ product.author }}
+              </a>
+            </p>
+            <p>
+              {% for term in product.terms('category') %}
+                <a class="f6 link dim br-pill ph2 pv1 mb2 dib black bg-light-gray" href="/category/{{ term.slug }}">{{ term.name }}</a>
+              {% endfor %}
+            </p>
           </div>
         </div>
-      </article>
-    {% endfor %}
-
-  </div>
-  {% if pagination %}
-    <div class="mt4">
-      {% if pagination.prev %}
-        <a class="fl f6 btn btn--sm btn--gray" href="{{ pagination.prev.link }}">Prev</a>
-      {% endif %}
-      {% if pagination.next %}
-        <a class="fr f6 btn btn--sm btn--gray" href="{{ pagination.next.link }}">Next</a>
-      {% endif %}
       </div>
+    </article>
+  {% endfor %}
+  <div class="mt4">
+    {% if pagination.prev %}
+      <a class="f6 btn btn--sm btn--gray btn--prev" href="{{ pagination.prev.link }}">Prev</a>
     {% endif %}
+    {% if pagination.current %}
+      <span class="count">{{ pagination.current }}/{{ pagination.total }}</span>
+    {% endif %}
+    {% if pagination.next %}
+      <a class="f6 btn btn--sm btn--gray btn--next" href="{{ pagination.next.link }}">Next</a>
+    {% endif %}
+  </div>
 </div>

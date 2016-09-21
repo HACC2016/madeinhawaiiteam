@@ -32,8 +32,17 @@ class MadeInHawaii extends TimberSite {
 		add_image_size('thumb', 600, 300, true);
 		add_image_size('product', 748, 0, false);
 
+    add_action( 'pre_get_posts', [$this, 'my_home_query'] );
+
 		parent::__construct();
 	}
+
+
+		function my_home_query( $query ) {
+      if ($query->is_archive && !is_admin() ) {
+        $query->set( 'post_type', ['product'] );
+      }
+    }
 
 
 	function remove_menus() {
