@@ -5,19 +5,17 @@
 		<div class="col-10--desktop shift-1">
 			<div class="mb4">
 				<h1>{{ post.post_title }}</h1>
+				{% set vendor = TimberUser(post.user) %}
+				<h3>
+					<a class="link gray" href="/author/{{vendor.user_login}}">
+						{{- vendor.display_name -}}
+					</a>
+				</h3>
 				<p>
 					{% for term in post.terms('category') %}
 						<a class="f6 link dim br-pill ph2 pv1 mb2 dib black bg-light-gray" href="/category/{{ term.slug }}">{{ term.name }}</a>
 					{% endfor %}
 				</p>
-				{% set vendor = TimberUser(post.user) %}
-				{% if vendor %}
-					<h3>
-						<a class="link gray" href="/author/{{vendor.user_login}}">
-							{{- vendor.display_name -}}
-						</a>
-					</h3>
-				{% endif %}
 			</div>
 
 			<img src="{{ product_image(post).src('product') }}" alt="">
