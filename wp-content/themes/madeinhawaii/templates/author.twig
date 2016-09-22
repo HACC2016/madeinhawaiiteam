@@ -13,7 +13,13 @@
 			{% if author.state %}{{- author.state -}}{% endif %}
 		</p>
 
-		{% if author.user_email %}
+		{% if author.email %}
+			<p>
+				<span class="b">Email:</span><a href="mailto:{{author.email}}" class="link black">
+					{{ author.email}}
+				</a>
+			</p>
+		{% elseif author.user_email %}
 		<p>
 			<span class="b">Email:</span><a href="mailto:{{author.user_email}}" class="link black">
 				{{ author.user_email }}
@@ -31,6 +37,10 @@
 		</p>
 		{% endif %}
 
+		{% if author.island %}
+			<p><span class="b">Island: </span>{{ author.island  }}</p>
+		{% endif %}
+
 			{% if author.services %}
 				<h4 class="pt2">Services</h4>
 				<ul class="list pa0 pr4">
@@ -39,6 +49,7 @@
 					{% endfor %}
 				</ul>
 			{% endif %}
+
 			{% if author.type_of_business %}
 				<h5 class="pt2">Type Of Business</h5>
 					<ul class="list pa0 pr4">
@@ -48,6 +59,7 @@
 					</ul>
 				</h5>
 			{% endif %}
+
 			{% if author.market %}
 				<h4 class="pt2">Market</h4>
 					<ul class="list pa0 pr4">

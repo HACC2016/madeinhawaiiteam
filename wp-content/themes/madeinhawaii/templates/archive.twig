@@ -11,6 +11,7 @@
 		{% include 'filter/filter.twig' %}
 	</div>
 	<div class="col-9--desktop">
+		<h1>{{ title }}</h1>
 		{% include 'product-list/product-list.twig' with {
 			products: posts,
 			pagination: pagination

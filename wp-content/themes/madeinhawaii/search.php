@@ -16,27 +16,54 @@ $templates = array( 'search.twig', 'archive.twig', 'index.twig' );
 $context = Timber::get_context();
 
 $search = $_GET['s'];
+$context['search'] = $search;
 $context['title'] = 'Search results for &quot;'. get_search_query() . "&quot;";
-$products =
-  Timber::get_posts(
-    [
-      'post_type' => 'product',
-      's' => $search,
-      'paged' => $wp_query->query_vars['paged'],
-      'tax_query' => [
-        [
-            'taxonomy' => 'category',
-            'field' => 'slug',
-            'terms' => 'food'
-        ]
-      ]
+
+$queried_posts = get_posts([
+  'fields' => 'ids',
+  'posts_per_page' => -1,
+  's' => $search
+]);
+$island_posts = [];
+
+if (isset($_GET['islands'])) {
+	$islands = explode(',', $_GET['islands']);
+	$context['islands'] = $islands;
+
+	$user_ids = get_users([
+		'meta_query' => [
+			[
+				'key' => 'island',
+				'value' => $islands,
+        'compare' => 'IN'
+			]
+		],
+		'fields' => 'ID'
+	]);
+
+  $user_ids = array_map(function($id) {
+    return intval($id);
+  }, $user_ids);
+
+	$island_posts = get_posts([
+    'fields' => 'ids',
+    'post_type' => 'product',
+    'posts_per_page' => '-1',
+    'meta_query' => [
+			[
+				'key' => 'user',
+				'value' => $user_ids,
+				'compare' => 'IN'
+			]
     ]
-  );
-
+  ]);
+}
+$wp_query->query_vars['post__in'] = array_merge([], $queried_posts, $island_posts);
+$products = Timber::get_posts($wp_query->query_vars);
+query_posts($wp_query->query_vars);
 $pagination = Timber::get_pagination();
+
 $context['pagination'] = $pagination;
-
-
 $context['products'] = $products;
 
 $users =

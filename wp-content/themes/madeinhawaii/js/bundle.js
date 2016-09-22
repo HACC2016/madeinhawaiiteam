@@ -630,7 +630,6 @@
 	      } else {
 	        params.islands = islands.concat([this.name]).join(',');
 	      }
-	      console.log(params);
 	      window.location = window.location.pathname + ('?' + _qs2.default.stringify(params));
 	    });
 	  });

@@ -73,7 +73,7 @@ if (isset($_GET['islands'])) {
 		],
 		'fields' => 'ID'
 	]);
-	
+
 	$wp_query->query_vars['meta_query'] =
 		[
 			[

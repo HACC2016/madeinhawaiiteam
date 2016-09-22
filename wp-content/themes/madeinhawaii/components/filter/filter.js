@@ -16,7 +16,6 @@ ready(() => {
       } else {
         params.islands = islands.concat([this.name]).join(',')
       }
-      console.log(params)
       window.location = window.location.pathname + `?${qs.stringify(params)}`;
     }))
 })
