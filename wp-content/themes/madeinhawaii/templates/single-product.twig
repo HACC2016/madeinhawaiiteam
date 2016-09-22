@@ -3,7 +3,7 @@
 {% block content %}
 	<div class="row">
 		<div class="col-10--desktop shift-1">
-			<div class="mb4">
+			<div class="mb4 row">
 				<h1>{{ post.post_title }}</h1>
 				{% set vendor = TimberUser(post.user) %}
 				<h3>
@@ -16,14 +16,37 @@
 						<a class="f6 link dim br-pill ph2 pv1 mb2 dib black bg-light-gray" href="/category/{{ term.slug }}">{{ term.name }}</a>
 					{% endfor %}
 				</p>
+
+				<img src="{{ product_image(post).img.src('product') }}" alt="{{ product.post_title }}">
+
+				<div class="row">
+					<h5>Availability</h5>
+					{{ product.product_status | default('In Stock')}}
+				</div>
+
+				<div class="pa3 ba b--light-silver bg-light-blue dib mt4">
+					<h4 class="mt1 mb2">Contact {{ vendor.display_name }}</h4>
+					<p class="mv1">
+						{% if vendor.email %}
+							<a class="link black" href="mailto:{{vendor.email}}"><span class="b">Email:&nbsp;</span>{{ vendor.email }}</a>
+						{% else %}
+							<a class="link black" href="mailto:{{vendor.user_email}}"><span class="b">Email:&nbsp;</span>{{ vendor.user_email }}</a>
+						{% endif %}
+					</p>
+					{% if vendor.phone1 %}
+						<p class="mv1">
+							<a
+								class="link black"
+								href="ph:{{ vendor.phone1 }}">
+								<span class="b">Phone:&nbsp;</span> {{ vendor.phone1 }}
+							</a>
+						</p>
+					{% endif %}
+					{% if vendor.website %}
+						<p class="mv1"><a class="link black" href="{{ vendor.website }}"><span class="b">Website: </span>{{ vendor.website }}</a></p>
+					{% endif %}
+				</div>
 			</div>
-
-			<img src="{{ product_image(post).img.src('product') }}" alt="{{ product.post_title }}">
-
-
-
-			<h5>Availability</h5>
-			{{ product.product_status | default('In Stock')}}
 
 			<hr>
 
