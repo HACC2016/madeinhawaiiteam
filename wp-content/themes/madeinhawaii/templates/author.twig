@@ -37,6 +37,12 @@
 		</p>
 		{% endif %}
 
+		{% if author.website %}
+			<p><span class="b">Website:&nbsp;</span>
+				<a class="link black dim" href="{{ author.website }}">{{ author.website }}</a>
+			</p>
+		{% endif %}
+
 		{% if author.island %}
 			<p><span class="b">Island: </span>{{ author.island  }}</p>
 		{% endif %}

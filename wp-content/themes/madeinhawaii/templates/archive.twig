@@ -11,9 +11,16 @@
 				<div class="col-3">
 					{{ dropdown() }}
 				</div>
-				<div class="col-9">
-						<label for="s" class="label black mb1">Search</label>
-						<input name="s" class="col-12 input-reset ba pa2" type="text" class="input">
+				<div class="col-9 relative">
+						<input
+							name="s"
+							class="col-12 input-reset ba pa2"
+							type="text"
+							placeholder="What can we help you find?"
+							class="input">
+						<input
+							class="btn btn--s absolute right-0 top-0 button-search"
+							type="submit">
 				</div>
 			</form>
 		</div>
