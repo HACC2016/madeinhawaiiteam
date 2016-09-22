@@ -17,6 +17,12 @@
     }
   }
 
+  &__checkbox {
+    float: right;
+    display: inline-block;
+    width: calc(100% - 32px);
+  }
+
   &__image {
     max-width: 4em;
   }
@@ -159,7 +165,7 @@
 #acf-certified {
   ul {
     overflow: visible;
-    margin: 0 0 12em;
+    margin: 0 0 18em;
   }
   li {
     position: relative;
@@ -181,9 +187,8 @@
     }
   }
   input {
-    margin-right: 5em !important;
     &::after {
-      @include position(absolute, 2em null null 23%);
+      @include position(absolute, 6em null null 23%);
       transform: translateX(20px);
     }
   }
