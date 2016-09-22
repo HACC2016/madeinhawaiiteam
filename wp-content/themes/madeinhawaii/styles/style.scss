@@ -15,13 +15,4 @@ $theme: "/wp-content/themes/madeinhawaii/";
 @import "components/product-list/product-list.scss";
 @import "components/admin-button/styles.scss";
 
-$dk-color-aux: $green;
-$dk-border-color: #CCCCCC;
-$dk-border-color-aux: $green;
-$dk-border-radius: 0.4em;
-$dk-disabled-color: #BBBBBB;
-
 @import '~dropkickjs/lib/css/dropkick.scss';
-.dk-selected {
-  padding: 0.55em;
-}

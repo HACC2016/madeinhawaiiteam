@@ -1,17 +1,17 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<div class="col-2--desktop category__sidebar hide-on-mobile">
+	<div class="col-2--tablet category__sidebar hide-on-mobile">
 		<h2>Filters</h2>
 		{% include 'filter/filter.twig' %}
 	</div>
-	<div class="col-9--desktop">
+	<div class="col-9--tablet">
 		<div class="row">
 			<form action="/" type="GET">
-				<div class="col-3">
+				<div class="col-3--tablet">
 					{{ dropdown() }}
 				</div>
-				<div class="col-9 relative">
+				<div class="col-9--tablet relative">
 						<input
 							name="s"
 							class="col-12 input-reset ba pa2"
