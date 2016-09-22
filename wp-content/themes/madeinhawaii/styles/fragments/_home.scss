@@ -3,22 +3,22 @@
   &-input {
     @include position(absolute, 50% null null 50%);
     transform: translate(-50%, -50%);
-
     z-index: 2;
     color: $white;
   }
 
   &-bg {
 
-    > .bg {
-      @include size(100% auto);
-      z-index: 0;
+    @include size(100% calc(100vh - 193px));
+    background: {
+      size: cover;
+      position: center center;
     }
+    z-index: 0;
 
     > .mask {
       @include size(100%);
       @include position(absolute, 0);
-      max-height: 45.2vw;
       background: rgba($black, 0.5);
       z-index: 1;
     }

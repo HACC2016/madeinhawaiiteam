@@ -15,8 +15,12 @@
 }
 
 .social-icon {
+  letter-spacing: -0.35em;
   > .icon {
-    @include size(2em);
+    @include size(1em);
+    @include breakpoint($tablet) {
+      @include size(2em);
+    }
     fill: $white;
     margin-right: 0.75em;
   }

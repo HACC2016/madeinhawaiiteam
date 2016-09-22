@@ -17,6 +17,7 @@ gulp.task('sass', function() {
     .src(paths.sass)
     .pipe($.plumber())
     .pipe($.sass({
+      outputStyle: 'compressed',
       importer: magicImporter
     }))
     .pipe($.postcss([

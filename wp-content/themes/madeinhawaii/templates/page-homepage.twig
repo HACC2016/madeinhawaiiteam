@@ -2,15 +2,14 @@
 
 {% block content %}
 	<div class="row relative">
-		<div class="home-input w-50">
+		<div class="home-input w-80 w-50-ns">
 			<form action="/" type="GET">
 				<label for="s" class="label white fl w-100 mb1">Search</label>
 				<input name="s" class="col-12 input-reset ba b--white pa2" type="text" class="input">
 			</form>
 		</div>
-		<div class="home-bg">
+		<div class="home-bg" style="background-image: url('{{ site.theme.link }}/img/home-rainbow.jpg')">
 			<div class="mask"></div>
-			<img src="{{ site.theme.link }}/img/home-rainbow.jpg" class="bg" alt="Made In Hawaii">
 		</div>
 	</div>
 {% endblock %}
