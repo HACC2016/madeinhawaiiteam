@@ -11,10 +11,11 @@ use Qaribou\Collection\ImmArray;
 
 require('routes/index.php');
 require('fields/user_fields.php');
+require('fields/product.php');
 require('post-types/product.php');
 require('post-types/legacy-user.php');
 
-Timber::$dirname = array('templates', 'components', 'modules');
+Timber::$dirname = array('templates', 'components');
 
 class MadeInHawaii extends TimberSite {
 
@@ -54,7 +55,7 @@ class MadeInHawaii extends TimberSite {
 	function remove_menus() {
 		remove_menu_page('edit.php');
 		remove_menu_page('edit-comments.php');
-		remove_menu_page('upload.php');
+		// remove_menu_page('upload.php');
 		// remove_menu_page( 'themes.php' );
 	}
 
@@ -88,8 +89,12 @@ function add_to_twig( $twig ) {
 
 		$twig->addFunction(
 			new Twig_SimpleFunction('product_image', function($product) {
+				$found = true;
 				if(!empty($product->image)) {
-					return new TimberImage($product->image);
+					return [
+						'found' => $found,
+						'img' => new TimberImage($product->image)
+					];
 				}
 				$terms = ImmArray::fromArray($product->terms('category'));
 				$images =
@@ -112,9 +117,17 @@ function add_to_twig( $twig ) {
 
 				if(count($images)) {
 				  $img = new TimberImage($images[count($images) - 1]->image['id']);
+
+					return [
+						'found' => $found,
+						'img' => $img
+					];
 					return $img;
 				}
-				return new TimberImage('https://placehold.it/600x300');
+				return [
+					'found' => false,
+					'img' => new TimberImage('https://placehold.it/600x300')
+				];
 			})
 		);
 

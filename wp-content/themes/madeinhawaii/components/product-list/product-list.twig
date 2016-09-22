@@ -1,8 +1,12 @@
 <div class="row pv2 mt2 mt0--ns product-list">
   {% for product in products %}
     <article class="br2 ba dark-gray b--black-10 mt3 product">
-      {% set img = product_image(product) %}
-      <img src="{{ img.src('thumb') }}" alt="" />
+      {% set product_image = product_image(product) %}
+      {% if product_image.found %}
+        <img src="{{ product_image.img.src('thumb') }}" alt="{{ product.title }}" />
+      {% else %}
+        <img src="//placehold.it/600x300" />
+      {% endif %}
       <div class="pa2 ph3-ns pb3-ns">
         <div class="dt w-100 mt1">
           <div class="dtc">
