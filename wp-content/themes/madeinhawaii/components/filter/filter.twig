@@ -1,0 +1,20 @@
+<h3 class="mv2 bb b--light-silver">Island</h3>
+
+{% set values = ['Kauai', 'Oahu', 'Maui', 'Molokai', 'Hawaii'] %}
+
+<nav class="product-filter -island">
+  {% for value in values %}
+
+    <div>
+      <input
+        class="checkbox"
+        type="checkbox"
+        name="{{ value }}"
+      {% if value in islands %}checked="true"{% endif %}
+      >
+      <label for="{{ value }}">{{ value }}</label>
+    </div>
+
+  {% endfor %}
+
+</nav>

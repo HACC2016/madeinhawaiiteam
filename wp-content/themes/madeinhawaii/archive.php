@@ -60,7 +60,31 @@ $context['defaults'] = [
 		'use_desc_for_title'  => 1,
 ];
 
+if (isset($_GET['islands'])) {
+	$islands = explode(',', $_GET['islands']);
+	$context['islands'] = $islands;
+
+	$user_ids = get_users([
+		'meta_query' => [
+			[
+				'key' => 'island',
+				'value' => $islands
+			]
+		],
+		'fields' => 'ID'
+	]);
+	
+	$wp_query->query_vars['meta_query'] =
+		[
+			[
+				'key' => 'user',
+				'value' => $user_ids,
+				'compare' => 'IN'
+			]
+		];
+}
 $context['page'] = get_query_var('paged');
-$context['posts'] = Timber::get_posts();
+$context['posts'] = Timber::get_posts($wp_query->query_vars);
+query_posts($wp_query->query_vars);
 $context['pagination'] = Timber::get_pagination();
 Timber::render( $templates, $context );

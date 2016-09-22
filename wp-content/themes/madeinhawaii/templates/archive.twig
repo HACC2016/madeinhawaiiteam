@@ -2,10 +2,13 @@
 
 {% block content %}
 	<div class="col-2--desktop category__sidebar hide-on-mobile">
-		<form action="/" type="GET">
-			<label for="s" class="label black mb1">Search</label>
-			<input name="s" class="col-12 input-reset ba pa2" type="text" class="input">
-		</form>
+		<div class="row">
+			<form action="/" type="GET">
+				<label for="s" class="label black mb1">Search</label>
+				<input name="s" class="col-12 input-reset ba pa2" type="text" class="input">
+			</form>
+		</div>
+		{% include 'filter/filter.twig' %}
 	</div>
 	<div class="col-9--desktop">
 		{% include 'product-list/product-list.twig' with {

@@ -8,7 +8,10 @@ var path = require('path')
 
 var paths = {
   sass: 'styles/**/*.scss',
-  js: 'js/src/**/*.js',
+  js: [
+    'js/src/**/*.js',
+    'components/**/*.js',
+  ],
   templates: 'templates/*.twig',
 }
 
