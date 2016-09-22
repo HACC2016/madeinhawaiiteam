@@ -30,11 +30,6 @@ if ( is_tag() ) {
 	array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
 }
 
-$context['categories'] = get_terms('category', [
-	'hide_empty' => false,
-	'child_of' => 1
-]);
-
 $context['defaults'] = [
 		'child_of'            => 0,
 		'current_category'    => 0,

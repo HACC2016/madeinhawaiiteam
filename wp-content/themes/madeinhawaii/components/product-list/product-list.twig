@@ -38,6 +38,8 @@
          href="{{ pagination.prev.link }}">
          Prev
       </a>
+    {% else %}
+        <div class="dib" style="width: 86px; height: 1px;"></div>
     {% endif %}
     {% if pagination.current %}
       <span class="count">{{ pagination.current }}/{{ pagination.total }}</span>

@@ -44,6 +44,8 @@
     "btns": "^1.1.0",
     "colors-sass": "^1.0.0",
     "domready": "^1.0.8",
+    "dropkick": "^0.1.1",
+    "dropkickjs": "^2.1.10",
     "geomicons-open": "^2.0.0",
     "gulp-inject": "^4.1.0",
     "gulp-postcss": "^6.2.0",

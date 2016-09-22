@@ -125,9 +125,15 @@
   }
 }
 
-.dk-select.dk-select {
-  width: 50%;
+.dk-select{
+  width: 100%;
+  margin-top: 1.5em;
 }
+
+.dk-selected {
+  padding: 0.5em;
+}
+
 
 //
 // .register {

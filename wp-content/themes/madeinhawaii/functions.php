@@ -116,6 +116,14 @@ function add_to_twig( $twig ) {
 			})
 		);
 
+		$twig->addFunction(
+			new Twig_SimpleFunction('dropdown', function() {
+				wp_dropdown_categories([
+					'show_option_all' => 'All Products'
+				]);
+			})
+		);
+
 		$twig->addFunction(new Twig_SimpleFunction('admin_button', function($post) {
 	    return get_edit_post_link($post->ID, 'Edit');
 	  }));

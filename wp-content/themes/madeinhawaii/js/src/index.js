@@ -1,4 +1,5 @@
 import 'awesomplete'
+import Dropkick from 'dropkickjs'
 import ready from 'domready'
 /**
  *  Add button
@@ -17,37 +18,15 @@ ready(() => {
 });
 
 /**
- *   Filter by category
+ *   Dropkick
  */
-ready(() => {
-  const filter = document.querySelector('.filter-by-category')
-  if(!filter) {
+ ready(() => {
+  const selects = document.querySelectorAll('select')
+  if(!selects) {
     return
   }
-  filter.addEventListener('click', function(e) {
-    e.preventDefault()
-    this.parentNode.parentNode.classList.toggle('-active')
+  Array.from(selects).forEach(select => {
+    const dk = new Dropkick(select)
+    console.log(dk)
   })
-
-  Array
-    .from(document.querySelectorAll('.list.tree > li > a'))
-    .forEach(link => {
-      const parent = link.parentNode
-      const children = parent.querySelector('.children')
-      if(children) {
-        const height = children.offsetHeight + 21
-        link.classList.add('has-children')
-        console.log(link)
-        link.addEventListener('click', (e) => {
-          e.preventDefault()
-          parent.classList.toggle('-active')
-          if(parent.classList.contains('-active')) {
-            parent.style['max-height'] = `${height}px`
-          } else {
-            parent.style['max-height'] = '21px'
-          }
-        })
-
-      }
-    })
-})
+ })

@@ -2,15 +2,21 @@
 
 {% block content %}
 	<div class="col-2--desktop category__sidebar hide-on-mobile">
-		<div class="row">
-			<form action="/" type="GET">
-				<label for="s" class="label black mb1">Search</label>
-				<input name="s" class="col-12 input-reset ba pa2" type="text" class="input">
-			</form>
-		</div>
+		<h2>Filters</h2>
 		{% include 'filter/filter.twig' %}
 	</div>
 	<div class="col-9--desktop">
+		<div class="row">
+			<form action="/" type="GET">
+				<div class="col-3">
+					{{ dropdown() }}
+				</div>
+				<div class="col-9">
+						<label for="s" class="label black mb1">Search</label>
+						<input name="s" class="col-12 input-reset ba pa2" type="text" class="input">
+				</div>
+			</form>
+		</div>
 		<h1>{{ title }}</h1>
 		{% include 'product-list/product-list.twig' with {
 			products: posts,
