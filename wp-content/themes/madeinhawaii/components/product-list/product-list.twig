@@ -16,11 +16,12 @@
               </a>
             </h1>
             <p class="mv1">
+              {% set user = TimberUser(product.user) %}
               <a
                 class="link gray dim"
-                href="/author/{{product.author.user_login}}/"
+                href="/author/{{user.user_login}}/"
                >
-                {{ product.author }}
+                {{ user.display_name }}
               </a>
             </p>
             <p>
