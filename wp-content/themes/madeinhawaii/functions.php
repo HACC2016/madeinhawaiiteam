@@ -34,11 +34,13 @@ class MadeInHawaii extends TimberSite {
 
     add_action( 'pre_get_posts', [$this, 'my_home_query'] );
 
-		Jigsaw::add_column('product', 'User', function($pid) {
-			$user_id = get_post_meta($pid, 'user', true);
-			$user = new TimberUser($user_id);
-			echo $user->display_name;
-		});
+		if(class_exists('Jigsaw')) {
+			Jigsaw::add_column('product', 'User', function($pid) {
+				$user_id = get_post_meta($pid, 'user', true);
+				$user = new TimberUser($user_id);
+				echo $user->display_name;
+			});
+		}
 
 		parent::__construct();
 	}
