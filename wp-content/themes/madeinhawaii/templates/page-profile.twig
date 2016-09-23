@@ -1,0 +1,16 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class="col-10 shift-1">
+				<h1>Update Profile</h1>
+				<label class="db w-100"for="">Email (contact admin to change)</label>
+				<input type="text" class="w-50" value="{{ user.user_email }}" disabled>
+				<h3>Update your profile</h3>
+				<hr>
+				{{ fn('acf_form', params)}}
+			</div>
+		</div>
+	</div>
+{% endblock %}
