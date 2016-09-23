@@ -3,7 +3,7 @@
     <article class="br2 ba dark-gray b--black-10 mt3 product">
       {% set product_image = product_image(product) %}
       {% if product_image.found %}
-        <img src="{{ product_image.img.src('thumb') }}" alt="{{ product.title }}" />
+        <img src="{{ product_image.img | resize(600, 300) }}" alt="{{ product.title }}" />
       {% else %}
         <img src="//placehold.it/600x300" />
       {% endif %}
