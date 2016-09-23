@@ -33,6 +33,8 @@ class MadeInHawaii extends TimberSite {
 		add_image_size('thumb', 600, 300, true);
 		add_image_size('product', 748, 0, false);
 
+		add_filter( 'login_redirect', array( $this, 'madeinhawaii_auth_signon'), 10, 3);
+
     add_action( 'pre_get_posts', [$this, 'my_home_query'] );
 
 		if(class_exists('Jigsaw')) {
@@ -145,6 +147,15 @@ function add_to_twig( $twig ) {
 
 		$twig->addExtension( new Twig_Extension_StringLoader() );
 		return $twig;
+	}
+
+	function madeinhawaii_auth_signon( $redirect_to, $request, $user) {
+		if(!is_wp_error($user)) {
+			if(!in_array('administrator', $user->roles)) {
+				return home_url();
+			}
+		}
+		return $redirect_to;
 	}
 
 }
