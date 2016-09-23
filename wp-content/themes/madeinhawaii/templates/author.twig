@@ -81,9 +81,10 @@
 		<h1> {{ author.display_name }} </h1>
 
 		{% if author.image %}
-			<img src="{{ author.image }}" alt="{{ author.display-name }}" />
+			{% set img = TimberImage(author.image) %}
+			<img src="{{ img.src('larg') }}" alt="{{ author.display_name }}" />
 		{% endif %}
-		
+
 		{% include 'product-list/product-list.twig' with {
 			products: posts
 		} only %}
