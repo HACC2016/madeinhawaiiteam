@@ -79,6 +79,11 @@
 
 	<div class="col-9">
 		<h1> {{ author.display_name }} </h1>
+
+		{% if author.image %}
+			<img src="{{ author.image }}" alt="{{ author.display-name }}" />
+		{% endif %}
+		
 		{% include 'product-list/product-list.twig' with {
 			products: posts
 		} only %}

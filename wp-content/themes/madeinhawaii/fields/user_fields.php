@@ -152,6 +152,18 @@ if(function_exists("register_field_group"))
 				'maxlength' => '',
 			),
 			array (
+				'key' =>  'field_57c6712959d73',  //Field info stolen from Country
+				'label' => 'Image',
+				'name' => 'image',
+				'type' => 'image',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
 				'key' => 'field_57c6711c59d72',
 				'label' => 'Sales Email',
 				'name' => 'email',
@@ -172,7 +184,7 @@ if(function_exists("register_field_group"))
 				'placeholder' => '',
 				'prepend' => '',
 				'append' => '',
-				'min' => '1800', //Added constraint
+				'min' => '1800', // Added constraint
 				'max' => '2100',
 				'step' => '',
 			),
@@ -185,8 +197,8 @@ if(function_exists("register_field_group"))
 					'mailorder' => 'Mail Order',
 					'delivery' => 'Delivery',
 					'catering' => 'Catering',
-					'packing' => 'Packing', //Where did we get this one from?
-					'growing' => 'Growing', //Where did we get this one from?
+					'packing' => 'Packing', // Where did we get this one from?
+					'growing' => 'Growing', // Where did we get this one from?
 					'labeling' => 'Private Labeling',
 					'bulk' => 'Bulk',
 					'retail' => 'Retail',
