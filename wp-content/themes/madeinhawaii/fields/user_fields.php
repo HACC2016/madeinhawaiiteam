@@ -11,7 +11,7 @@ if(function_exists("register_field_group"))
 				'name' => 'certified',
 				'type' => 'checkbox',
 				'choices' => array (
-					'50' => '<div class="register__checkbox">At least 50% of value added in Hawaii <br> <a href="#">See calculator in application form</a></div>',
+					'50' => '<div class="register__checkbox">At least 50% of value added in Hawaii <br> <a href="https://stateofhawaii.na1.echosign.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhAa5XE1WPyLBXiqWM2VN1I0mPzuVpw6E7S_sSANdsV0mQRIqWF5uCYDGlAB1PFXrw0*">See calculator in application form</a></div>',
 					'100' => '<div class="register__checkbox">100% grown in Hawaii</div>',
 					'seal' => '<div class="register__checkbox">Premium product with at least 50% local ingredients or 100% grown in Hawaii</div>',
 				),
