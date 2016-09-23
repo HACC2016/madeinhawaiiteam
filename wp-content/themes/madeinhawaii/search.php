@@ -19,13 +19,20 @@ $search = $_GET['s'];
 $context['search'] = $search;
 $context['title'] = 'Search results for &quot;'. get_search_query() . "&quot;";
 
+$vendor_users = get_users([
+  'role' => 'Subscriber'
+]);
+
 $queried_posts = get_posts([
   'fields' => 'ids',
   'posts_per_page' => -1,
+  'meta_key' => 'user',
+  'meta_value' => $vendor_users,
+  'meta_compare' => 'IN',
   's' => $search
 ]);
-$island_posts = [];
 
+$island_posts = [];
 if (isset($_GET['islands'])) {
 	$islands = explode(',', $_GET['islands']);
 	$context['islands'] = $islands;

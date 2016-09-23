@@ -55,6 +55,7 @@ $context['defaults'] = [
 		'use_desc_for_title'  => 1,
 ];
 
+$user_ids = [];
 if (isset($_GET['islands'])) {
 	$islands = explode(',', $_GET['islands']);
 	$context['islands'] = $islands;
@@ -69,15 +70,22 @@ if (isset($_GET['islands'])) {
 		'fields' => 'ID'
 	]);
 
-	$wp_query->query_vars['meta_query'] =
-		[
-			[
-				'key' => 'user',
-				'value' => $user_ids,
-				'compare' => 'IN'
-			]
-		];
+} else {
+	$user_ids = get_users([
+		'role' => 'Subscriber',
+		'fields' => 'ID'
+	]);
 }
+
+$wp_query->query_vars['meta_query'] =
+	[
+		[
+			'key' => 'user',
+			'value' => $user_ids,
+			'compare' => 'IN'
+		]
+	];
+
 $context['page'] = get_query_var('paged');
 $context['posts'] = Timber::get_posts($wp_query->query_vars);
 query_posts($wp_query->query_vars);
