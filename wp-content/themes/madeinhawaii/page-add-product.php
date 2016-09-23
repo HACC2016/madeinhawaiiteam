@@ -42,4 +42,13 @@ $products =
 
 $context['products'] = $products;
 
+$user_products =
+  Timber::get_posts([
+    'posts_per_page' => -1,
+    'meta_key' => 'user',
+    'meta_value' => $context['current_user']->ID
+  ]);
+
+$context['user_products'] = $user_products;
+
 Timber::render( array( 'page-' . $post->post_name . '.twig', 'page.twig' ), $context );

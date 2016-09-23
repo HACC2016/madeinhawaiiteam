@@ -19,6 +19,9 @@
 				<h3 class="col-12 tc <mt></mt>4">Your Products</h3>
 				<div class="col-8 shift-2 ">
 					<ul class="list ba pa0" class="shift-6">
+						{% for product in user_products %}
+							<li class="bb b--light-silver pv2 pl2">{{ product.title }}</li>
+						{% endfor %}
 					</ul>
 				</div>
 				<a href="" class="btn btn--s btn--blue fr">Save</a>

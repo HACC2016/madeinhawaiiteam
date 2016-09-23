@@ -13,7 +13,7 @@ require('routes/index.php');
 require('fields/user_fields.php');
 require('fields/product.php');
 require('post-types/product.php');
-require('post-types/legacy-user.php');
+// require('post-types/legacy-user.php');
 
 Timber::$dirname = array('templates', 'components');
 
@@ -73,7 +73,7 @@ class MadeInHawaii extends TimberSite {
 		$context['site'] = $this;
 		$user =  wp_get_current_user();
 		$context['current_user'] = $user;
-		if ($user) {
+		if ($user->ID) {
 			$context['menu'] = new TimberMenu('Producer');
 		} else {
 			$context['menu'] = new TimberMenu('Main');
