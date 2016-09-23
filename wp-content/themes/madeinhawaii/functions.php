@@ -70,9 +70,14 @@ class MadeInHawaii extends TimberSite {
 	}
 
 	function add_to_context( $context ) {
-		$context['menu'] = new TimberMenu();
 		$context['site'] = $this;
-		$context['current_user'] = wp_get_current_user();
+		$user =  wp_get_current_user();
+		$context['current_user'] = $user;
+		if ($user) {
+			$context['menu'] = new TimberMenu('Producer');
+		} else {
+			$context['menu'] = new TimberMenu('Main');
+		}
 		return $context;
 	}
 

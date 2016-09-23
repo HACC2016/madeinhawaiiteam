@@ -26,8 +26,11 @@ use Qaribou\Collection\ImmArray;
 
 $context = Timber::get_context();
 
-$leaves =
-  ImmArray::fromArray(get_terms(['childless' => TRUE, 'hide_empty' => FALSE]));
+if(!$context['current_user']->ID) {
+  wp_redirect('/');
+}
+
+$leaves = ImmArray::fromArray(get_terms(['hide_empty' => false]));
 
 $products =
   $leaves->reduce(function($arr, $leaf) {
