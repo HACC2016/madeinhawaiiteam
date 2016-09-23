@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="container">
-	<div class="col-3--desktop br b--light-silver">
+	<div class="col-3--tablet br-ns b--light-silver">
 		{% if author.image %}
 			{% set img = TimberImage(author.image) %}
 			<img src="{{ img.src('larg') }}" alt="{{ author.display_name }}" />
@@ -81,9 +81,7 @@
 			{% endif %}
 	</div>
 
-	<div class="col-9">
-		<h1> {{ author.display_name }} </h1>
-
+	<div class="col-9--tablet">
 		{% include 'product-list/product-list.twig' with {
 			products: posts
 		} only %}
