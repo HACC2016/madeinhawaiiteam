@@ -67,7 +67,6 @@
 			'position' => 'normal',
 			'layout' => 'no_box',
 			'hide_on_screen' => array (
-				0 => 'the_content',
 				1 => 'excerpt',
 				2 => 'custom_fields',
 				3 => 'discussion',
