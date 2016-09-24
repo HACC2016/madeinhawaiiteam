@@ -30,14 +30,15 @@ if(!$context['current_user']->ID) {
   wp_redirect('/');
 }
 
-$leaves = ImmArray::fromArray(get_terms(['hide_empty' => false]));
+$leaves =
+  ImmArray::fromArray(get_terms([
+    'childless' => true,
+    'hide_empty' => false
+  ]));
 
 $products =
   $leaves->reduce(function($arr, $leaf) {
-    if(empty($leaf->description)) {
-      return $arr;
-    }
-    return array_merge($arr, [$leaf->name], preg_split('/\n/', $leaf->description));
+    return array_merge($arr, [$leaf->name]);
   }, []);
 
 $context['products'] = $products;
