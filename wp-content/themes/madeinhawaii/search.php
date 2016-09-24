@@ -20,7 +20,8 @@ $context['search'] = $search;
 $context['title'] = 'Search results for &quot;'. get_search_query() . "&quot;";
 
 $vendor_users = get_users([
-  'role' => 'Subscriber'
+  'role' => 'Subscriber',
+  'fields' => 'ID'
 ]);
 
 $queried_posts = get_posts([
